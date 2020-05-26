@@ -188,6 +188,7 @@ h2 {
 	background: linear-gradient(to top, black, transparent 50px) no-repeat center bottom;
 	background-image: url(../img/main3.jpg);
 	background-size: auto 100%;
+	background-size: cover;
 	background-attachment: fixed;
 	transition: 1.2s;
 }
