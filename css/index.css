@@ -161,6 +161,9 @@ h2 {
 	border: 2px solid #ececec;
 	line-height: 1.4;
 }
+#skill p {
+	margin-bottom: 1rem;
+}
 .skill_level {
 	background: #f4eaef;
 	padding: 1.8rem 2rem 1.8rem 4rem;
