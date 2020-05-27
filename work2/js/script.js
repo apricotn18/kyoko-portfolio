@@ -73,6 +73,7 @@ function ajaxRequest(lat, lon) {
 			}
 		});
 
+		//loadingを消す（2回目以降用）
 		setTimeout(function() {
 			if (!load.classList.contains('dnone')) {
 				load.classList.add('dnone');
@@ -87,9 +88,7 @@ function ajaxRequest(lat, lon) {
 
 // 位置情報の確認がでなかったとき
 setTimeout(function() {
-	if (load.classList.contains('dnone')) {
-		return false;
-	} else {
+	if (!load.classList.contains('dnone')) {
 		load.classList.add('dnone');
 		ajaxRequest(35.68036537, 139.77166874);
 	}
@@ -101,11 +100,9 @@ const change = document.getElementById('change');
 const overflow = document.getElementById('overflow');
 const wrap = document.getElementById('overflow_wrap');
 const close = document.getElementById('overflow_close');
-const isClass = overflow.classList.contains('hidden');
 
 change.addEventListener('click', function() {
-	if (isClass) overflow.classList.remove('hidden');
-	else overflow.classList.add('hidden');
+	overflow.classList.toggle('hidden');
 });
 
 wrap.addEventListener('click', function() {
@@ -115,8 +112,6 @@ wrap.addEventListener('click', function() {
 close.addEventListener('click', function() {
 	overflow.classList.add('hidden');
 });
-
-}
 
 
 //座標一覧
@@ -191,3 +186,4 @@ function addArea() {
 	}
 }
 
+}
