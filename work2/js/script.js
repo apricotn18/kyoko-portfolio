@@ -87,7 +87,10 @@
 
 	// 位置情報の確認がでなかったとき
 	setTimeout(function() {
-		if (isClass) load.classList.add('dnone');
+		if (isClass) {
+			load.classList.add('dnone');
+			ajaxRequest(35.68036537, 139.77166874);
+		}
 	}, 5000)
 
 
