@@ -5,7 +5,6 @@ navigator.geolocation.getCurrentPosition(success, fail);
 
 let input, lat, lon = '';
 const load = document.getElementById('loading');
-const xhr = new XMLHttpRequest();
 
 function success(pos) {
 	load.classList.add('dnone');
@@ -32,20 +31,27 @@ function utcToJSTime(utcTime) {
 
 // 天気予報
 function ajaxRequest(lat, lon) {
-	const url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
+	const url = 'https://api.openweathermap.org/data/2.5/forecast';
+	const appId = 'dd64b46ea595c4104e0881953cb4e287';
 
-	fetch(url, {
-		mode: 'cors',
-		method: 'GET'
+	$.ajax({
+		url: url,
+		data: {
+			appid: appId,
+			lat: lat,
+			lon: lon,
+			cnt: 10,
+			units: 'metric',
+			lang: 'ja'
+		}
 	})
-	.then(async response => {
-		const data = await response.json();
-
+	.done(function(data) {
 		// 都市
 		const place = `<span>${data.city.name}</span>`;
 		$('#change').html(place);
+
 		// 天気予報データ
-		data.list.forEach(function (forecast, index) {
+		data.list.forEach(function(forecast, index) {
 			const dateTime = new Date(utcToJSTime(forecast.dt));
 			const month = dateTime.getMonth() + 1;
 			const date = dateTime.getDate();
@@ -54,54 +60,73 @@ function ajaxRequest(lat, lon) {
 			const temperature = Math.round(forecast.main.temp);
 			const description = forecast.weather[0].description;
 			const iconPath = `img/${forecast.weather[0].icon}.svg`;
+
 			// 現在の天気、それ以外
-			if (index === 0) {
+			if(index === 0) {
 				const currentWeather = `
-						<div class="info">
-							<p>
-								<span class="description">現在の天気：${description}</span>
-								<span class="temp">${temperature}</span>°C
-							</p>
-						</div>
-						<div class="icon"><img src="${iconPath}"></div>`;
+					<div class="info">
+						<p>
+							<span class="description">現在の天気：${description}</span>
+							<span class="temp">${temperature}</span>°C
+						</p>
+					</div>
+					<div class="icon"><img src="${iconPath}"></div>`;
 				$('#weather').html(currentWeather);
-			}
-			else {
+			} else {
 				const tableRow = `
-						<tr>
-							<td class="info">
-								${month}/${date}<br>${hours}:${min}
-							</td>
-							<td class="icon"><img src="${iconPath}"></td>
-							<td><span class="description">${description}</span></td>
-							<td><span class="temp">${temperature}°C</span></td>
-						</tr>`;
+					<tr>
+						<td class="info">
+							${month}/${date}<br>${hours}:${min}
+						</td>
+						<td class="icon"><img src="${iconPath}"></td>
+						<td><span class="description">${description}</span></td>
+						<td><span class="temp">${temperature}°C</span></td>
+					</tr>`;
 				$('#forecast').append(tableRow);
 			}
 		});
 	})
-	.catch(erro => {
-		console.log(erro);
-	});
+	.fail(function() {
+		console.log('$.ajax failed!');
+	})
 }
 
 
 // 地名検索
 function ajaxRequestPlace(input) {
-	const url = `https://map.yahooapis.jp/geocode/V1/geoCoder?appid=dj00aiZpPVpnSXJOWjA2TlVTbSZzPWNvbnN1bWVyc2VjcmV0Jng9NDU-&query=${input}&output=xml`;
+	const url = 'https://map.yahooapis.jp/geocode/V1/geoCoder';
+	const appId = 'dj00aiZpPVpnSXJOWjA2TlVTbSZzPWNvbnN1bWVyc2VjcmV0Jng9NDU-';
 
-	fetch(url, {
-		mode: 'cors'
+	$.ajax({
+		url: url,
+		data: {
+			query: input,
+			appid: appId
+		}
 	})
-	.then(async response => {
-		const data = await response.json();
-		console.log(data);
+	.done(function(data) {
+		const address = $(data).find('Feature').find('Address');
+
+		//取得したデータを操作
+		for (let i = 0; i < address.length; i++) {
+			if (input === address[i].innerHTML) {
+				const coordinates = $(data).find('Feature').find('Coordinates')[i].innerHTML;
+				const coor = coordinates.split(',');
+				console.log(coor[1], coor[0]);
+
+				reset();
+				setTimeout(function(){
+					load.classList.add('dnone');
+					ajaxRequest(coor[1], coor[0]);
+				}, 1500);
+			}
+		}
 	})
-	.catch(erro => {
-		console.log(erro);
-		alert('エラー：住所が見つかりませんでした');
-	});
+	.fail(function() {
+		console.log('$.ajax failed!');
+	})
 }
+
 
 
 //住所変更
