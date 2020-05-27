@@ -76,16 +76,20 @@ header img {
 main {
 	padding: 3.5rem 2rem;
 }
-#place p span {
+#change span {
 	position: relative;
 	background: #e7f3f3;
 	color: #078388;
-	padding: .7rem 1.5rem;
+	padding: 1rem 1.7rem;
 	border-radius: .5rem;
 	font-size: 1.2rem;
 	user-select: none;
+	cursor: pointer;
 }
-#place p span::after {
+#change span:hover {
+	text-decoration: underline;
+}
+#change span::after {
 	content: "";
 	position: absolute;
 	top: 100%;
@@ -94,23 +98,11 @@ main {
 	border: .7rem solid transparent;
 	border-top-color: #e7f3f3;
 }
-#place h2 {
-	padding: 1rem;
-	margin: 1rem 0 0;
+h2 {
+	margin: 2.5rem 0 1rem;
 	border-radius: .2rem;
-	cursor: pointer;
 	font-weight: bold;
-	user-select: none;
-}
-#place h2 span {
 	font-size: 2rem;
-	background: url(../img/icon_change.png) no-repeat center right;
-	padding: 0 2.3rem 0 2rem;
-	font-weight: bold;
-}
-#place h2:hover {
-	opacity: .7;
-	text-decoration: underline;
 }
 #weather > .icon {
 	margin: 0 2rem 2rem;
@@ -177,23 +169,18 @@ small {
 	bottom: 0;
 	left: 0;
 	background: rgba(0,0,0,.6);
+	cursor: pointer;
 }
 #overflow_inner {
 	position: relative;
-	width: 90%;
-	max-width: 1000px;
-	max-height: calc(100% - 6rem);
-	overflow-y: auto;
-	margin: 3rem auto 0;
-	margin: 50vh auto 0;
-	transform: translateY(-60%);
+	margin: 0 auto;
 	z-index: 100;
 }
 #overflow_inner > div {
 	background: #fff;
 	border-radius: 1rem;
 	max-width: 450px;
-	margin: auto;
+	margin: 10vh auto;
 	overflow: hidden;
 }
 #overflow_inner h3 {
@@ -215,36 +202,22 @@ small {
 	height: 25px;
 	cursor: pointer;
 }
-.of_text {
-	padding: 2rem 2rem 2.5rem;
+#select_area {
+	max-height: calc(80vh - 50px);
+	overflow: hidden;
+	overflow-y: auto;
+	justify-content: flex-start;
 }
-.of_text p.exam {
-	font-size: 1.2rem;
-	color: #555;
-	margin-top: .5rem;
-}
-#overflow_inner form {
-	margin-top: 1.2rem;
-}
-#overflow_inner input[type="text"] {
-	padding: .5rem;
-	border: 1px solid #999;
-	border-radius: .3rem;
-	font-size: 1.4rem;
-}
-#overflow_inner input[type="button"] {
-	background: #00a3aa;
-	border: none;
-	color: #fff;
-	font-size: 1.3rem;
-	padding: .6rem 1rem .4rem;
+#select_area li {
+	width: 33.3%;
+	padding: 1.5rem 0;
+	box-sizing: border-box;
+	background: #f8f8f8;
+	border: 1px solid #fff;
 	cursor: pointer;
-	border-radius: .3rem;
-	margin-left: 1px;
+	user-select: none;
 }
-#overflow_inner input[type="button"]:active {
-	background: #006165;
-}
-#overflow_inner input:focus {
-	outline: none;
+#select_area li:hover {
+	color: #00a3aa;
+	background: #fff;
 }

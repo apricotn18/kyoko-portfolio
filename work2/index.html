@@ -26,8 +26,8 @@
 
 	<main>
 		<div id="place">
-			<p><span>クリックで場所を変更</span></p>
-			<h2 id="change"></h2>
+			<p id="change"><span>都道府県別の天気予報に変更</span></p>
+			<h2></h2>
 		</div>
 		<div id="weather">
 			<div id="now">
@@ -47,16 +47,12 @@
 	<div id="overflow_inner">
 		<div>
 			<h3>
-				住所を入力してください
+				都道府県を選択してください
 				<span id="overflow_close"></span>
 			</h3>
-			<div class="of_text">
-				<p>（例：東京都中央区日本橋、東京都品川区）</p>
-				<p class="exam">入力した住所周辺の天気が取得できます</p>
-				<form name="form1" onsubmit="return false;">
-					<input type="text" name="address">
-					<input type="button" id="btn" value="送信">
-				</form>
+			<div>
+				<ul id="select_area" class="flex">
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -64,9 +60,6 @@
 
 <script src="../js/jquery.js"></script>
 <script src="js/script.js"></script>
-<script>
 
-
-</script>
 </body>
 </html>
