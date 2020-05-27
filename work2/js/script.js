@@ -88,7 +88,9 @@ function ajaxRequest(lat, lon) {
 
 // 位置情報の確認がでなかったとき
 setTimeout(function() {
-	if (!load.classList.contains('dnone')) {
+	if (load.classList.contains('dnone')) {
+		return false;
+	} else {
 		load.classList.add('dnone');
 		ajaxRequest(35.68036537, 139.77166874);
 	}
