@@ -74,7 +74,7 @@
 
 			//2回目以降用
 			setTimeout(function() {
-				if (isClass) {
+				if (!isClass) {
 					load.classList.add('dnone');
 				}
 			}, 800);
