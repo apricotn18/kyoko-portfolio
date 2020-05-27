@@ -4,10 +4,10 @@
 	navigator.geolocation.getCurrentPosition(success, fail);
 
 	const load = document.getElementById('loading');
-	const isClass = load.classList.contains('dnone');
 
 	function success(pos) {
 		load.classList.add('dnone');
+		load.classList.remove('ready');
 		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
 	}
 
@@ -74,7 +74,7 @@
 
 			//2回目以降用
 			setTimeout(function() {
-				if (!isClass) {
+				if (!load.classList.contains('dnone')) {
 					load.classList.add('dnone');
 				}
 			}, 800);
@@ -87,7 +87,11 @@
 
 	// 位置情報の確認がでなかったとき
 	setTimeout(function() {
-		if (!isClass && $('h2').html == '') {
+		if (!load.classList.contains('ready')) {
+			console.log(load.classList.contains('ready'));
+			return false;
+		} else {
+			console.log(load.classList.contains('ready'));
 			load.classList.add('dnone');
 			ajaxRequest(35.68036537, 139.77166874);
 		}
