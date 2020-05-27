@@ -169,16 +169,16 @@ const areaList = [
 // 地名検索
 area();
 function area() {
-	// areaList.forEach(function(list) {
-	// 	$('#select_area').append(`<li>${list.area}</li>`);
-	// });
+	areaList.forEach(function(list) {
+		$('#select_area').append(`<li>${list.area}</li>`);
+	});
 
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
-			overflow.classList.add('hidden');
+			$('#overflow').addClass('hidden');
 			$('#loading').removeClass('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
