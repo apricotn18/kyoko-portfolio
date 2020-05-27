@@ -13,7 +13,26 @@ body {
 	background: linear-gradient(45deg, #dedede, #f5f5f5);
 	text-align: center;
 	min-height: 100vh;
-	padding: 2rem;
+	padding: .5rem 2rem;
+}
+.pankuz {
+	max-width: 390px;
+	margin: auto;
+	text-align: right;
+}
+.pankuz a, .pankuz span {
+	position: relative;
+	display: inline-block;
+	margin-bottom: .5rem;
+	color: #999;
+	font-size: 1.1rem;
+}
+.pankuz a {
+	text-decoration: underline;
+}
+.pankuz span::before {
+	content: ">";
+	padding: 0 5px 0 0;
 }
 
 
@@ -173,14 +192,14 @@ small {
 }
 #overflow_inner {
 	position: relative;
+	max-width: 480px;
 	margin: 0 auto;
 	z-index: 100;
 }
 #overflow_inner > div {
 	background: #fff;
 	border-radius: 1rem;
-	max-width: 450px;
-	margin: 10vh auto;
+	margin: 10vh 2rem;
 	overflow: hidden;
 }
 #overflow_inner h3 {
@@ -220,4 +239,23 @@ small {
 #select_area li:hover {
 	color: #00a3aa;
 	background: #fff;
+}
+
+
+@media screen and (max-width: 470px) {
+	header img {
+		width: 80px;
+		bottom: -8px;
+	}
+	#select_area li {
+		width: 50%;
+	}
+	#overflow_inner h3 {
+		font-size: 1.5rem;
+	}
+	#overflow_close {
+		top: 18.5px;
+		width: 12px;
+		height: 13px;
+	}
 }

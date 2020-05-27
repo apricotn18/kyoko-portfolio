@@ -6,7 +6,6 @@ navigator.geolocation.getCurrentPosition(success, fail);
 let input, lat, lon = '';
 const load = document.getElementById('loading');
 
-
 function success(pos) {
 	load.classList.add('dnone');
 	ajaxRequest(pos.coords.latitude, pos.coords.longitude);
@@ -91,6 +90,16 @@ function ajaxRequest(lat, lon) {
 		console.log(erro);
 	});
 }
+
+
+// 位置情報の確認がでなかったとき
+setTimeout(function() {
+	if (load.classList.contains('dnone')) {
+		return false;
+	} else {
+		fail('timeout');
+	}
+}, 5000)
 
 
 // overflow
