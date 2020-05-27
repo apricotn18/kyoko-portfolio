@@ -1,70 +1,192 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
-<title>天気予報</title>
+<title>KYOKO NOZAKI - ポートフォリオ</title>
 <meta name="Description" content="">
 <meta name="Keywords" content="">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
-<link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/index.css">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/slick.css">
+<link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Kosugi&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+<style>
+#loading {
+	position: fixed;
+	z-index: 200;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #91355f;
+	transition: 1.5s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+</style>
 </head>
 <body>
-<div class="pankuz">
-	<a href="/">ポートフォリオ</a>
-	<span>天気予報</span>
+
+<div id="loading">
+	<div>
+		<div class="sk-folding-cube">
+			<div class="sk-cube1 sk-cube"></div>
+			<div class="sk-cube2 sk-cube"></div>
+			<div class="sk-cube4 sk-cube"></div>
+			<div class="sk-cube3 sk-cube"></div>
+		</div>
+		<p>loading ..</p>
+	</div>
 </div>
 
 <div class="wrap">
-	<header>
-		<h1>天気予報</h1>
-		<img src="img/img_nyan.png" alt="にゃんこ">
-	</header>
-
-	<div id="loading">
-		<img src="img/loading.gif" alt="読み込み中">
-	</div>
-
-	<main>
-		<div id="place">
-			<p id="change"><span>都道府県別の天気予報に変更</span></p>
-			<h2></h2>
+	<section id="main">
+		<div class="inner">
+			<h1>portfolio<span>KYOKO NOZAKI</span></h1>
 		</div>
-		<div id="weather">
-			<div id="now">
+	</section>
+
+	<section id="prof">
+		<div class="inner">
+			<h2>profile</h2>
+			<img src="img/img_prof.png" alt="プロフィール画像">
+			<p>
+				東京都出身のwebデザイナーでフロントエンドエンジニアを目指しています。<br>
+				大学ではマーケティングを学んだのち、会議室を運営する企業でwebデザイナーに。<br>
+				デザコー以外にもSEO施策やリスティング広告にも携わりました。<br>
+				もっとプログラミングスキルを伸ばしたく、JavaScript・フレームワークの勉強中です。
+			</p>
+		</div>
+	</section>
+
+	<section id="port">
+		<div class="inner">
+			<h2>portfolio</h2>
+			<ul class="flex port_list">
+				<li>
+					<a href="https://kyoko-portfolio.herokuapp.com/work2/"><div class="slick">
+						<div><img src="img/img_port1-1.png"></div>
+						<div><img src="img/img_port1-2.png"></div>
+					</div></a>
+					<div class="prof_text">
+						<h3>
+							<a href="https://kyoko-portfolio.herokuapp.com/work2/">天気予報API</a>
+						</h3>
+						<p>JavaScriptのリファレンス本を参考に制作し、<br>都道府県別の天気を取得できる機能を追加しました。</p>
+						<p>HTML / CSS / JavaScript</p>
+					</div>
+				</li>
+				<li>
+					<a href="/work1/" target="_blank"><div class="slick">
+						<div><img src="img/img_port2-1.png"></div>
+						<div><img src="img/img_port2-3.png"></div>
+						<div><img src="img/img_port2-2.png"></div>
+					</div></a>
+					<div class="prof_text">
+						<h3>
+							<a href="/work1/" target="_blank">コーポレートサイト</a>
+						</h3>
+						<p>実在しない企業のコーポレートサイトです。<br>笑顔・生活・ITをコンセプトに制作しました。</p>
+						<p>HTML / CSS / jQuery / レスポンシブデザイン</p>
+					</div>
+				</li>
+				<li>
+					<div class="slick">
+						<div><img src="img/img_port3-1.png"></div>
+						<div><img src="img/img_port3-2.png"></div>
+						<div><img src="img/img_port3-3.png"></div>
+						<div><img src="img/img_port3-4.png"></div>
+					</div>
+					<div class="prof_text">
+						<h3>不動産オーナー向けLP</h3>
+						<p>遊休不動産の活用方法を提案するページです。<br>信頼感を与える爽やかな印象に仕上げました。</p>
+						<p>HTML / CSS / レスポンシブデザイン</p>
+					</div>
+				</li>
+				<li>
+					<div class="slick">
+						<div><img src="img/img_port4-1.png"></div>
+						<div><img src="img/img_port4-2.png"></div>
+						<div><img src="img/img_port4-3.png"></div>
+						<div><img src="img/img_port4-4.png"></div>
+					</div>
+					<div class="prof_text">
+						<h3>ラグジュアリー宴会場LP</h3>
+						<p>高品質な宴会場を紹介するページです。<br>少し重みのある、高級感を感じる配色にしました。</p>
+						<p>HTML / CSS / レスポンシブデザイン</p>
+					</div>
+				</li>
+			</ul>
+	</section>
+
+	<section id="skill">
+		<div class="inner">
+			<h2>skill</h2>
+			<div class="flex skill_list">
+				<div>
+					<img src="img/skill_graph.png" alt="HTML/CSS：3, JavaScript：2, jQuery：2, Veu.js：1, Photoshop/illustrator/XD：3">
+				</div>
+				<div>
+					<p>
+						HTML / CSSは疑似要素やアニメーション、SEOを意識したコーディングが可能です。デザインツールも実務レベルで使用できます。
+					</p>
+					<p>
+						JavaScriptとjQueryは実務で軽く使用したことはありますが、まだ習熟が必要です。
+					</p>
+					<p>
+						また、Vue.jsは現在勉強中。今後はJavaScriptのフレームワーク、PHPについても勉強していきたいと考えます。
+					</p>
+					<ol class="skill_level">
+						<li>実務で使用なし、勉強中</li>
+						<li>実務で軽く使用したことがある、習熟が必要</li>
+						<li>実務レベル</li>
+					</ol>
+				</div>
 			</div>
 		</div>
-		<table id="forecast">
-		</table>
-	</main>
+	</section>
+
+	<footer>
+		<ul class="flex fot_list">
+			<li><a href="#prof">profile</a></li>
+			<li><a href="#port">portfolio</a></li>
+			<li><a href="#skill">skill</a></li>
+		</ul>
+		<small>&#169; 2020  KYOKO NOZAKI</small>
+	</footer>
+
 </div>
 
-<footer>
-	<small>&#169; 2020  KYOKO NOZAKI</small>
-</footer>
 
-<div id="overflow" class="hidden">
-	<div id="overflow_wrap"></div>
-	<div id="overflow_inner">
-		<div>
-			<h3>
-				都道府県を選択してください
-				<span id="overflow_close"></span>
-			</h3>
-			<div>
-				<ul id="select_area" class="flex">
-					<li>北海道</li><li>青森県</li><li>岩手県</li><li>宮城県</li><li>秋田県</li><li>山形県</li><li>福島県</li><li>茨城県</li><li>栃木県</li><li>群馬県</li><li>埼玉県</li><li>千葉県</li><li>東京都</li><li>神奈川県</li><li>新潟県</li><li>富山県</li><li>石川県</li><li>福井県</li><li>山梨県</li><li>長野県</li><li>岐阜県</li><li>静岡県</li><li>愛知県</li><li>三重県</li><li>滋賀県</li><li>京都府</li><li>大阪府</li><li>兵庫県</li><li>奈良県</li><li>和歌山県</li><li>鳥取県</li><li>島根県</li><li>岡山県</li><li>広島県</li><li>山口県</li><li>徳島県</li><li>香川県</li><li>愛媛県</li><li>高知県</li><li>福岡県</li><li>佐賀県</li><li>長崎県</li><li>熊本県</li><li>大分県</li><li>宮崎県</li><li>鹿児島県</li><li>沖縄県</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
 
-<script src="../js/jquery.js"></script>
-<script src="js/script.js"></script>
 
+<script src="js/jquery.js"></script>
+<script src="js/slick.js"></script>
+<script>
+'use strict';
+{
+	setTimeout(function() {
+		const load = document.getElementById('loading');
+		load.classList.add('none');
+	}, 1200);
+
+	$('.slick').slick({
+		dots: true,
+		arrows: false,
+	});
+
+		$('.fot_list a').click(function(){
+			const href= $(this).attr('href');
+			const target = $(href == '#' || href == '' ? 'html' : href);
+			const position = target.offset().top + 30;
+			$('html, body').animate({scrollTop:position}, 500, 'swing');
+			return false;
+		});
+}
+
+</script>
 </body>
 </html>
