@@ -5,7 +5,6 @@ navigator.geolocation.getCurrentPosition(success, fail);
 
 let input, lat, lon = '';
 const load = document.getElementById('loading');
-const isClass = load.classList.contains('dnone');
 
 function success(pos) {
 	load.classList.add('dnone');
@@ -76,7 +75,7 @@ function ajaxRequest(lat, lon) {
 
 		//loadingを消す（2回目以降用）
 		setTimeout(function() {
-			if (!isClass) {
+			if (!load.classList.contains('dnone')) {
 				load.classList.add('dnone');
 			}
 		}, 800);
@@ -89,7 +88,9 @@ function ajaxRequest(lat, lon) {
 
 // 位置情報の確認がでなかったとき
 setTimeout(function() {
-	if (!isClass) {
+	if (!load.classList.contains('dnone')) {
+		return false;
+	} else {
 		load.classList.add('dnone');
 		ajaxRequest(35.68036537, 139.77166874);
 	}
@@ -115,6 +116,7 @@ close.addEventListener('click', function() {
 });
 
 }
+
 
 //座標一覧
 const areaList = [
@@ -167,11 +169,10 @@ const areaList = [
 	{'area': '沖縄県', 'coord': [26.2125, 127.68111]}
 ];
 
-{
 // 地名検索
-erea();
+addArea();
 
-function erea() {
+function addArea() {
 	areaList.forEach(function(list) {
 		$('#select_area').append(`<li>${list.area}</li>`);
 	});
@@ -182,11 +183,10 @@ function erea() {
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
-			load.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
+			load.classList.remove('dnone');
 		});
 	}
 }
 
-}
