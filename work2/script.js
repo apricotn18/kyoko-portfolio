@@ -118,7 +118,7 @@ close.addEventListener('click', function() {
 //都道府県変更
 const li = $('#select_area li');
 for (let i = 0; i < li.length; i++) {
-	li[i].addEventListener('click', function() {
+	li[i].click(function() {
 		ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 		overflow.classList.add('hidden');
