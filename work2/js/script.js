@@ -3,8 +3,8 @@
 
 	navigator.geolocation.getCurrentPosition(success, fail);
 
-	let input, lat, lon = '';
 	const load = document.getElementById('loading');
+	const isLoadClass = load.classList.contains('dnone');
 
 	function success(pos) {
 		load.classList.add('dnone');
@@ -17,17 +17,9 @@
 		console.log(error);
 	}
 
-	function reset() {
-		overflow.classList.add('hidden');
-		load.classList.remove('dnone');
-		$('#forecast').html('');
-		$('#weather').html('');
-	}
-
 	function utcToJSTime(utcTime) {
 		return utcTime * 1000;
 	}
-
 
 
 	// 天気予報
@@ -80,8 +72,9 @@
 				}
 			});
 
+			//2回目以降用
 			setTimeout(function() {
-				if (!load.classList.contains('dnone')) {
+				if (!isClass) {
 					load.classList.add('dnone');
 				}
 			}, 800);
@@ -94,11 +87,7 @@
 
 	// 位置情報の確認がでなかったとき
 	setTimeout(function() {
-		if (load.classList.contains('dnone')) {
-			return false;
-		} else {
-			load.classList.add('dnone');
-		}
+		if (isClass) load.classList.add('dnone');
 	}, 5000)
 
 
@@ -107,11 +96,9 @@
 	const overflow = document.getElementById('overflow');
 	const wrap = document.getElementById('overflow_wrap');
 	const close = document.getElementById('overflow_close');
-	const isClass = overflow.classList.contains('hidden');
 
 	change.addEventListener('click', function() {
-		if (isClass) overflow.classList.remove('hidden');
-		else overflow.classList.add('hidden');
+		overflow.classList.toggle('hidden');
 	});
 
 	wrap.addEventListener('click', function() {
@@ -177,18 +164,22 @@
 	];
 
 	// 地名検索
-	addArea();
+	area();
 
-	function addArea() {
-		areaList.forEach(function(list) {
-			$('#select_area').append(`<li>${list.area}</li>`);
-		});
+	function area() {
+		// areaList.forEach(function(list) {
+		// 	$('#select_area').append(`<li>${list.area}</li>`);
+		// });
 
 		const li = document.querySelectorAll('#select_area li');
 		for (let i = 0; i < li.length; i++) {
 			li[i].addEventListener('click', function() {
 				ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
-				reset();
+
+				overflow.classList.add('hidden');
+				load.classList.remove('dnone');
+				$('#forecast').html('');
+				$('#weather').html('');
 			});
 		}
 	}
