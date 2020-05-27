@@ -111,8 +111,10 @@
 	close.addEventListener('click', function() {
 		overflow.classList.add('hidden');
 	});
+}
 
 
+{
 	//座標一覧
 	const areaList = [
 		{'area': '北海道', 'coord': [43.06417, 141.34694]},
@@ -184,6 +186,5 @@
 			});
 		}
 	}
-
 }
 
