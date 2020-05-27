@@ -5,6 +5,7 @@ navigator.geolocation.getCurrentPosition(success, fail);
 
 let input, lat, lon = '';
 const load = document.getElementById('loading');
+const isClass = load.classList.contains('dnone');
 
 function success(pos) {
 	load.classList.add('dnone');
@@ -75,7 +76,7 @@ function ajaxRequest(lat, lon) {
 
 		//loadingを消す（2回目以降用）
 		setTimeout(function() {
-			if (!load.classList.contains('dnone')) {
+			if (!isClass) {
 				load.classList.add('dnone');
 			}
 		}, 800);
@@ -88,9 +89,7 @@ function ajaxRequest(lat, lon) {
 
 // 位置情報の確認がでなかったとき
 setTimeout(function() {
-	if (load.classList.contains('dnone')) {
-		return false;
-	} else {
+	if (!isClass) {
 		load.classList.add('dnone');
 		ajaxRequest(35.68036537, 139.77166874);
 	}
@@ -115,11 +114,7 @@ close.addEventListener('click', function() {
 	overflow.classList.add('hidden');
 });
 
-}
 
-
-
-{
 //座標一覧
 const areaList = [
 	{'area': '北海道', 'coord': [43.06417, 141.34694]},
@@ -172,22 +167,16 @@ const areaList = [
 ];
 
 // 地名検索
-addArea();
+erea();
 
-function addArea() {
-	areaList.forEach(function(list) {
-		$('#select_area').append(`<li>${list.area}</li>`);
-	});
-
+function erea() {
 	const li = document.querySelectorAll('#select_area li');
-	const loading = document.getElementById('loading');
-
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
-			loading.classList.remove('dnone');
+			load.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
 		});
