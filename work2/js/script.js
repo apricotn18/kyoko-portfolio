@@ -97,7 +97,7 @@ setTimeout(function() {
 	if (load.classList.contains('dnone')) {
 		return false;
 	} else {
-		fail('timeout');
+		load.classList.add('dnone');
 	}
 }, 5000)
 
