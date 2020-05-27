@@ -114,6 +114,7 @@ close.addEventListener('click', function() {
 	overflow.classList.add('hidden');
 });
 
+}
 
 //座標一覧
 const areaList = [
@@ -166,21 +167,26 @@ const areaList = [
 	{'area': '沖縄県', 'coord': [26.2125, 127.68111]}
 ];
 
+{
 // 地名検索
-areaList.forEach(function(list) {
-	$('#select_area').append(`<li>${list.area}</li>`);
-});
+erea();
 
-const li = document.querySelectorAll('#select_area li');
-for (let i = 0; i < li.length; i++) {
-	li[i].addEventListener('click', function() {
-		ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
-
-		overflow.classList.add('hidden');
-		load.classList.remove('dnone');
-		$('#forecast').html('');
-		$('#weather').html('');
+function erea() {
+	areaList.forEach(function(list) {
+		$('#select_area').append(`<li>${list.area}</li>`);
 	});
+
+	const li = document.querySelectorAll('#select_area li');
+	for (let i = 0; i < li.length; i++) {
+		li[i].addEventListener('click', function() {
+			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+
+			overflow.classList.add('hidden');
+			load.classList.remove('dnone');
+			$('#forecast').html('');
+			$('#weather').html('');
+		});
+	}
 }
 
 }
