@@ -98,6 +98,7 @@ setTimeout(function() {
 		return false;
 	} else {
 		load.classList.add('dnone');
+		ajaxRequest(35.68036537, 139.77166874);
 	}
 }, 5000)
 
