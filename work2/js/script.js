@@ -4,7 +4,7 @@
 	navigator.geolocation.getCurrentPosition(success, fail);
 
 	const load = document.getElementById('loading');
-	const isLoadClass = load.classList.contains('dnone');
+	const isClass = load.classList.contains('dnone');
 
 	function success(pos) {
 		load.classList.add('dnone');
