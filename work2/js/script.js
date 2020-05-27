@@ -87,7 +87,7 @@
 
 	// 位置情報の確認がでなかったとき
 	setTimeout(function() {
-		if (!isClass) {
+		if (isClass) {
 			load.classList.add('dnone');
 			ajaxRequest(35.68036537, 139.77166874);
 		}
@@ -112,10 +112,8 @@
 		overflow.classList.add('hidden');
 	});
 
-}
 
-
-//座標一覧
+	//座標一覧
 const areaList = [
 	{'area': '北海道', 'coord': [43.06417, 141.34694]},
 	{'area': '青森県', 'coord': [40.82444, 140.74]},
@@ -166,9 +164,8 @@ const areaList = [
 	{'area': '沖縄県', 'coord': [26.2125, 127.68111]}
 ];
 
-// 地名検索
-area();
-function area() {
+
+	// 地名検索
 	areaList.forEach(function(list) {
 		$('#select_area').append(`<li>${list.area}</li>`);
 	});
@@ -178,10 +175,12 @@ function area() {
 		li[i].addEventListener('click', function() {
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
-			$('#overflow').addClass('hidden');
-			$('#loading').removeClass('dnone');
+			overflow.classList.add('hidden');
+			load.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
 		});
 	}
+
+
 }
