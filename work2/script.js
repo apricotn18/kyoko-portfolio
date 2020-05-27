@@ -3,9 +3,8 @@
 
 navigator.geolocation.getCurrentPosition(success, fail);
 
-let areaList = [];
+let input, lat, lon = '';
 const load = document.getElementById('loading');
-const isClass = load.classList.contains('dnone');
 
 function success(pos) {
 	load.classList.add('dnone');
@@ -16,6 +15,13 @@ function fail(error) {
 	load.classList.add('dnone');
 	ajaxRequest(35.68036537, 139.77166874);
 	console.log(error);
+}
+
+function reset() {
+	overflow.classList.add('hidden');
+	load.classList.remove('dnone');
+	$('#forecast').html('');
+	$('#weather').html('');
 }
 
 function utcToJSTime(utcTime) {
@@ -74,9 +80,8 @@ function ajaxRequest(lat, lon) {
 			}
 		});
 
-		//loadingを消す（2回目以降用）
 		setTimeout(function() {
-			if (!isClass) {
+			if (!load.classList.contains('dnone')) {
 				load.classList.add('dnone');
 			}
 		}, 800);
@@ -89,9 +94,10 @@ function ajaxRequest(lat, lon) {
 
 // 位置情報の確認がでなかったとき
 setTimeout(function() {
-	if (isClass) {
-		load.classList.add('dnone');
-		ajaxRequest(35.68036537, 139.77166874);
+	if (load.classList.contains('dnone')) {
+		return false;
+	} else {
+		fail(error);
 	}
 }, 5000)
 
@@ -101,9 +107,11 @@ const change = document.getElementById('change');
 const overflow = document.getElementById('overflow');
 const wrap = document.getElementById('overflow_wrap');
 const close = document.getElementById('overflow_close');
+const isClass = overflow.classList.contains('hidden');
 
 change.addEventListener('click', function() {
-	overflow.classList.toggle('hidden');
+	if (isClass) overflow.classList.remove('hidden');
+	else overflow.classList.add('hidden');
 });
 
 wrap.addEventListener('click', function() {
@@ -114,23 +122,11 @@ close.addEventListener('click', function() {
 	overflow.classList.add('hidden');
 });
 
-
-//都道府県変更
-const li = $('#select_area li');
-for (let i = 0; i < li.length; i++) {
-	li[i].click(function() {
-		ajaxRequest(35.68036537, 139.77166874);
-
-		overflow.classList.add('hidden');
-		load.classList.remove('dnone');
-		$('#forecast').html('');
-		$('#weather').html('');
-	});
 }
 
 
 //座標一覧
-areaList = [
+const areaList = [
 	{'area': '北海道', 'coord': [43.06417, 141.34694]},
 	{'area': '青森県', 'coord': [40.82444, 140.74]},
 	{'area': '岩手県', 'coord': [39.70361, 141.1525]},
@@ -180,4 +176,20 @@ areaList = [
 	{'area': '沖縄県', 'coord': [26.2125, 127.68111]}
 ];
 
+// 地名検索
+addArea();
+
+function addArea() {
+	areaList.forEach(function(list) {
+		$('#select_area').append(`<li>${list.area}</li>`);
+	});
+
+	const li = document.querySelectorAll('#select_area li');
+	for (let i = 0; i < li.length; i++) {
+		li[i].addEventListener('click', function() {
+			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+			reset();
+		});
+	}
 }
+
