@@ -17,13 +17,6 @@ function fail(error) {
 	console.log(error);
 }
 
-function reset() {
-	overflow.classList.add('hidden');
-	load.classList.remove('dnone');
-	$('#forecast').html('');
-	$('#weather').html('');
-}
-
 function utcToJSTime(utcTime) {
 	return utcTime * 1000;
 }
@@ -189,7 +182,11 @@ function addArea() {
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
-			reset();
+
+			overflow.classList.add('hidden');
+			load.classList.remove('dnone');
+			$('#forecast').html('');
+			$('#weather').html('');
 		});
 	}
 }
