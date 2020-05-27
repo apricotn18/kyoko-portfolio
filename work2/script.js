@@ -119,7 +119,7 @@ close.addEventListener('click', function() {
 const li = $('#select_area li');
 for (let i = 0; i < li.length; i++) {
 	li[i].click(function() {
-		ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+		ajaxRequest(35.68036537, 139.77166874);
 
 		overflow.classList.add('hidden');
 		load.classList.remove('dnone');
