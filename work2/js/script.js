@@ -112,8 +112,6 @@
 		overflow.classList.add('hidden');
 	});
 
-	}
-
 
 	//座標一覧
 	const areaList = [
@@ -186,3 +184,6 @@
 			});
 		}
 	}
+
+}
+
