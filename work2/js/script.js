@@ -115,7 +115,11 @@ close.addEventListener('click', function() {
 	overflow.classList.add('hidden');
 });
 
+}
 
+
+
+{
 //座標一覧
 const areaList = [
 	{'area': '北海道', 'coord': [43.06417, 141.34694]},
@@ -176,12 +180,14 @@ function addArea() {
 	});
 
 	const li = document.querySelectorAll('#select_area li');
+	const loading = document.getElementById('loading');
+
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
-			load.classList.remove('dnone');
+			loading.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
 		});
