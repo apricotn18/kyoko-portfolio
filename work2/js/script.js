@@ -30,7 +30,6 @@
 			mode: 'cors',
 			method: 'POST',
 			cache: 'no-cache',
-			redirect: 'follow'
 		})
 		.then(async response => {
 			const data = await response.json();
@@ -177,12 +176,13 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
-			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+			//ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
+			load.classList.add('dnone');
 		});
 	}
 
