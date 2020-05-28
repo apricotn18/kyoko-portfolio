@@ -4,11 +4,14 @@
 	navigator.geolocation.getCurrentPosition(success, fail);
 
 	const load = document.getElementById('loading');
+	let lat, lon = '';
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
+		lat = pos.coords.latitude;
+		lon = pos.coords.longitude;
+		ajaxRequest(lat, lon);
 	}
 
 	function fail(error) {
@@ -20,6 +23,7 @@
 	function utcToJSTime(utcTime) {
 		return utcTime * 1000;
 	}
+
 
 	$.ajaxSetup({
 		type: 'POST',
@@ -187,7 +191,9 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
-			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+			lat = areaList[i]['coord'][0];
+			lon = areaList[i]['coord'][1];
+			ajaxRequest(lat, lon);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
