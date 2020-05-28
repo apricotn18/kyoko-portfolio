@@ -21,24 +21,30 @@
 		return utcTime * 1000;
 	}
 
+	$.ajaxSetup({
+		type: 'POST',
+		dataType: 'json',
+		timeout: 30000,
+		headers: {
+			'pragma': 'no-cache',
+			'Cache-Control': 'no-cache',
+			'If-Modified-Since': 'Thu, 01 Jun 1970 00:00:00 GMT'
+		}
+	});
+
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
-		const url = 'https://api.openweathermap.org/data/2.5/forecast';
-		const appId = 'dd64b46ea595c4104e0881953cb4e287';
+		const url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
 
-		$.ajax({
-				url: url,
-				data: {
-						appid: appId,
-						lat: lat,
-						lon: lon,
-						units: 'metric',
-						lang: 'ja',
-						cnt: 10
-				}
+		fetch(url, {
+			mode: 'cors',
+			method: 'POST',
+			cache: 'no-cache',
 		})
-		.done(function(data) {
+		.then(async response => {
+			const data = await response.json();
+
 			// 都市
 			$('h2').html(data.city.name);
 
@@ -85,7 +91,7 @@
 				}
 			}, 800);
 		})
-		.fail(function(erro) {
+		.catch(erro => {
 			console.log(erro);
 		});
 	}
@@ -181,6 +187,7 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
+			location.reload(true);
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
@@ -189,4 +196,6 @@
 			$('#weather').html('');
 		});
 	}
+
+
 }
