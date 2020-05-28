@@ -28,7 +28,8 @@
 
 		fetch(url, {
 			mode: 'cors',
-			method: 'POST'
+			method: 'POST',
+			cache: 'no-cache'
 		})
 		.then(async response => {
 			const data = await response.json();
@@ -175,7 +176,7 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
-			ajaxRequest(35.68036537, 139.77166874);
+			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
