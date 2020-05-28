@@ -162,6 +162,16 @@ $(function(){
 		$('body').removeClass('nav_open');
 	});
 });
+
+$(function(){
+	$('.nav_list a').click(function(){
+		const href= $(this).attr('href');
+		const target = $(href == '#' || href == '' ? 'html' : href);
+		const position = target.offset().top - 50;
+		$('html, body').animate({scrollTop:position}, 500, 'swing');
+		return false;
+	});
+});
 </script>
 </body>
 </html>

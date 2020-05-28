@@ -178,13 +178,13 @@
 		arrows: false,
 	});
 
-		$('.fot_list a').click(function(){
-			const href= $(this).attr('href');
-			const target = $(href == '#' || href == '' ? 'html' : href);
-			const position = target.offset().top + 30;
-			$('html, body').animate({scrollTop:position}, 500, 'swing');
-			return false;
-		});
+	$('.fot_list a').click(function(){
+		const href= $(this).attr('href');
+		const target = $(href == '#' || href == '' ? 'html' : href);
+		const position = target.offset().top + 30;
+		$('html, body').animate({scrollTop:position}, 500, 'swing');
+		return false;
+	});
 }
 
 </script>
