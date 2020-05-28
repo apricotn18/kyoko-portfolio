@@ -24,16 +24,21 @@
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
-		const url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
+		const url = 'https://api.openweathermap.org/data/2.5/forecast';
+		const appId = 'dd64b46ea595c4104e0881953cb4e287';
 
-		fetch(url, {
-			mode: 'cors',
-			method: 'POST',
-			cache: 'no-cache',
+		$.ajax({
+				url: url,
+				data: {
+						appid: appId,
+						lat: lat,
+						lon: lon,
+						units: 'metric',
+						lang: 'ja',
+						cnt: 10
+				}
 		})
-		.then(async response => {
-			const data = await response.json();
-
+		.done(function(data) {
 			// 都市
 			$('h2').html(data.city.name);
 
@@ -80,7 +85,7 @@
 				}
 			}, 800);
 		})
-		.catch(erro => {
+		.fail(function(erro) {
 			console.log(erro);
 		});
 	}
@@ -176,15 +181,12 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
-			//ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
-			load.classList.add('dnone');
 		});
 	}
-
-
 }
