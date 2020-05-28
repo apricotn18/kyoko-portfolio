@@ -187,7 +187,6 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
-			location.reload(true);
 			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
 
 			overflow.classList.add('hidden');
