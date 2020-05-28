@@ -240,10 +240,11 @@ h2 {
 }
 @media screen and (max-width: 776px) {
 	#main {
-    height: calc(100vh - 60px);
+		height: calc(100vh - 60px);
 	}
 	#main_bg {
 		background-position: left 35% bottom;
+		background-attachment: inherit;
 	}
 	#main .main_box {
 		bottom: 4rem;
