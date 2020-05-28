@@ -29,7 +29,8 @@
 		fetch(url, {
 			mode: 'cors',
 			method: 'POST',
-			cache: 'no-cache'
+			cache: 'no-cache',
+			redirect: 'follow'
 		})
 		.then(async response => {
 			const data = await response.json();
