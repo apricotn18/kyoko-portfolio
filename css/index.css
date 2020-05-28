@@ -155,7 +155,7 @@ h2 {
 	margin: 0 1rem;
 }
 .skill_list > div {
-	width: 48%;
+	width: 47.5%;
 }
 .skill_list img {
 	border: 2px solid #ececec;
@@ -180,10 +180,13 @@ h2 {
 		width: 100%;
 	}
 	.skill_list > div:first-child {
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
 	}
 	.skill_list {
 		margin: 0;
+	}
+	.skill_level {
+		margin-top: 2.5rem;
 	}
 }
 
