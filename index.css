@@ -1,0 +1,240 @@
+/* contents ------------------------*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, a, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	font-family: 'Lexend Deca', 'Kosugi', sans-serif;
+}
+* {
+	font-size: 1.4rem;
+	letter-spacing: .1rem;
+	font-weight: normal;
+}
+body {
+	background: #fff;
+	color: #555;
+	text-align: center;
+}
+
+
+/* wrap -------------------*/
+.wrap {
+	background: #dcdadf;
+	width: 100%;
+}
+
+
+/* main -------------------*/
+#main {
+	overflow: hidden;
+	background: url(../img/main.png) no-repeat 0 0;
+	background-size: 100%;
+}
+#main .inner {
+	position: relative;
+	height: 92vh;
+	min-height: 550px;
+	padding: 0;
+}
+.title {
+	position: absolute;
+	top: 47%;
+	left: 0;
+	right: 0;
+}
+h1 {
+	opacity: 0;
+}
+h1 {
+	font-family: 'Righteous';
+	font-size: 10rem;
+	color: #91355f;
+	line-height: 1.1;
+}
+h1 + p {
+	opacity: 0;
+	font-size: 3rem;
+	color: #a66382;
+	font-weight: bold;
+}
+.animated {
+	opacity: 1;
+}
+@media screen and (max-width: 660px) {
+	#main {
+		background: url(../img/main_sp.png) no-repeat 0 0;
+		background-size: 100%;
+	}
+	#main .inner {
+		height: 80vh;
+	}
+	h1 {
+		font-size: 7.2rem;
+	}
+	h1 + p {
+		font-size: 2.5rem;
+	}
+	.scroll {
+		background-size: 30px;
+		width: 30px;
+		height: 30px;
+	}
+}
+
+
+/* prof -------------------*/
+#prof {
+	background: linear-gradient(135deg, #91355f, #b35a82);
+	color: #fff;
+}
+.inner {
+	padding: 6rem 3rem 6.5rem;
+	max-width: 1100px;
+	margin: auto;
+}
+h2 {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+#prof img {
+	width: auto;
+}
+#prof p {
+	margin-top: 2.3rem;
+}
+
+
+/* port -------------------*/
+#port .inner {
+	padding-bottom: 5.5rem;
+}
+#port h2 {
+	margin-bottom: 0;
+}
+.port_list {
+	justify-content: space-between;
+}
+.port_list li {
+	width: 48%;
+	margin-top: 3rem;
+}
+.port_list li img {
+	width: 85%;
+	padding-left: 2%;
+	margin: auto;
+	cursor: grab;
+}
+.prof_text {
+	margin: 4.8rem 2rem 3rem;
+}
+.port_list h3, .port_list h3 a {
+	font-size: 1.6rem;
+}
+.port_list h3 {
+	margin-bottom: .8rem;
+}
+.port_list h3 a {
+	background: url(../img/icon_link.png) right center no-repeat;
+	padding-right: 20px;
+	color: #16181e;
+}
+.port_list h3 a:hover {
+	text-decoration: underline;
+}
+.prof_text p:last-child {
+	font-size: 12px;
+	margin-top: 1.2rem;
+	color: #95969a;
+}
+@media screen and (max-width: 660px) {
+	.port_list li {
+		width: 100%;
+	}
+	.port_list li img {
+		width: 98%;
+	}
+	.prof_text {
+		margin: 4.5rem 0 3rem;
+	}
+	.port_list h3 {
+		margin-bottom: .5rem;
+	}
+}
+
+
+/* skill -------------------*/
+#skill {
+	background: url(../img/skill_bg.gif);
+}
+.skill_list {
+	justify-content: space-between;
+	text-align: left;
+	margin: 0 1rem;
+}
+.skill_list > div {
+	width: 47.5%;
+}
+.skill_list img {
+	border: 2px solid #ececec;
+	line-height: 1.4;
+}
+#skill p {
+	margin-bottom: 1rem;
+}
+.skill_level {
+	background: #f4eaef;
+	padding: 1.8rem 2rem 1.8rem 4rem;
+	color: #91355f;
+	margin-top: 2rem;
+}
+.skill_level li {
+	font-size: 1.2rem;
+	list-style: inherit;
+	padding: .2rem;
+}
+@media screen and (max-width: 660px) {
+	.skill_list > div {
+		width: 100%;
+	}
+	.skill_list > div:first-child {
+		margin-bottom: 2.5rem;
+	}
+	.skill_list {
+		margin: 0;
+	}
+	.skill_level {
+		margin-top: 2.5rem;
+	}
+}
+
+
+/* footer -------------------*/
+footer {
+	background: #91355f;
+	padding: 2rem 1rem;
+	color: #fff;
+}
+.fot_list {
+	margin: 8rem 0;
+}
+.fot_list li {
+	width: 25%;
+	border-right: 1px solid #ccc;
+}
+.fot_list li:last-child {
+	border-right: none;
+}
+.fot_list a {
+	font-size: 1.6rem;
+	padding: 1rem;
+}
+footer small {
+	font-size: 1.1rem;
+}
+@media screen and (max-width: 660px) {
+	.fot_list {
+		margin: 3rem 0;
+	}
+	.fot_list li {
+		width: 100%;
+		border-right: none;
+		padding: 1rem;
+	}
+}
