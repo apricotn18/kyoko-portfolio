@@ -61,7 +61,10 @@ h1 + p {
 		background-size: 100%;
 	}
 	#main .inner {
-		height: 80vh;
+		height: 100vh;
+	}
+	.title {
+		top: 42%;
 	}
 	h1 {
 		font-size: 7rem;
