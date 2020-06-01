@@ -23,6 +23,7 @@
 	right: 0;
 	background: #91355f;
 	transition: 1.5s;
+	transition-delay: 1.2s;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -173,10 +174,8 @@
 <script>
 'use strict';
 {
-	setTimeout(function() {
-		const load = document.getElementById('loading');
-		load.classList.add('none');
-	}, 1200);
+	const load = document.getElementById('loading');
+	load.classList.add('none');
 
 	$('.slick').slick({
 		dots: true,
