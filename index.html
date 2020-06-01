@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-<title>ANZU - ポートフォリオ</title>
+<title>KYOKO NOZAKI - ポートフォリオ</title>
 <meta name="Description" content="">
 <meta name="Keywords" content="">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -32,7 +32,7 @@
 </head>
 <body>
 
-<div id="loading" class="none">
+<div id="loading">
 	<div>
 		<div class="sk-folding-cube">
 			<div class="sk-cube1 sk-cube"></div>
@@ -49,7 +49,7 @@
 		<div class="inner">
 			<div class="title">
 				<h1 id="animate1" data-anijs="if: transitionend, on: #loading, do: animated bounceInDown">portfolio</h1>
-				<p id="animate2" data-anijs="if: animationend, on: #animate1, do: animated flipInX">ANZU</p>
+				<p id="animate2" data-anijs="if: animationend, on: #animate1, do: animated flipInX">KYOKO NOZAKI</p>
 			</div>
 		</div>
 	</section>
@@ -60,7 +60,7 @@
 			<img src="img/img_prof.png" alt="プロフィール画像">
 			<p>
 				東京都出身のwebデザイナーでフロントエンドエンジニアを目指しています。<br>
-				大学ではマーケティングを学んだのち、不動産業を運営する企業でwebデザイナーに。<br>
+				大学ではマーケティングを学んだのち、会議室を運営する企業でwebデザイナーに。<br>
 				デザコー以外にもSEO施策やリスティング広告にも携わりました。<br>
 				もっとプログラミングスキルを伸ばしたく、JavaScript・フレームワークの勉強中です。
 			</p>
@@ -73,15 +73,55 @@
 			<ul class="flex port_list">
 				<li>
 					<div class="slick">
-						<div><a href="https://anzu-weather.herokuapp.com/" target="_blank"><img src="img/img_port1-1.png"></a></div>
-						<div><a href="https://anzu-weather.herokuapp.com/" target="_blank"><img src="img/img_port1-2.png"></a></div>
+						<div><a href="/work2/" target="_blank"><img src="img/img_port1-1.png"></a></div>
+						<div><a href="/work2/" target="_blank"><img src="img/img_port1-2.png"></a></div>
 					</div>
 					<div class="prof_text">
 						<h3>
-							<a href="https://anzu-weather.herokuapp.com/" target="_blank">天気予報API</a>
+							<a href="/work2/" target="_blank">天気予報API</a>
 						</h3>
 						<p>JavaScriptのリファレンス本を参考に制作し、<br>都道府県別の天気を取得できる機能を追加しました。<br>（スマホのバグ修正中）</p>
 						<p>HTML / CSS / JavaScript</p>
+					</div>
+				</li>
+				<li>
+					<div class="slick">
+						<div><a href="/work1/" target="_blank"><img src="img/img_port2-1.png"></a></div>
+						<div><a href="/work1/" target="_blank"><img src="img/img_port2-3.png"></a></div>
+						<div><a href="/work1/" target="_blank"><img src="img/img_port2-2.png"></a></div>
+					</div>
+					<div class="prof_text">
+						<h3>
+							<a href="/work1/" target="_blank">コーポレートサイト</a>
+						</h3>
+						<p>実在しない企業のコーポレートサイトです。<br>笑顔・生活・ITをコンセプトに制作しました。</p>
+						<p>HTML / CSS / jQuery / レスポンシブデザイン</p>
+					</div>
+				</li>
+				<li>
+					<div class="slick">
+						<div><img src="img/img_port3-1.png"></div>
+						<div><img src="img/img_port3-2.png"></div>
+						<div><img src="img/img_port3-3.png"></div>
+						<div><img src="img/img_port3-4.png"></div>
+					</div>
+					<div class="prof_text">
+						<h3>不動産オーナー向けLP</h3>
+						<p>遊休不動産の活用方法を提案するページです。<br>信頼感を与える爽やかな印象に仕上げました。</p>
+						<p>HTML / CSS / レスポンシブデザイン</p>
+					</div>
+				</li>
+				<li>
+					<div class="slick">
+						<div><img src="img/img_port4-1.png"></div>
+						<div><img src="img/img_port4-2.png"></div>
+						<div><img src="img/img_port4-3.png"></div>
+						<div><img src="img/img_port4-4.png"></div>
+					</div>
+					<div class="prof_text">
+						<h3>ラグジュアリー宴会場LP</h3>
+						<p>高品質な宴会場を紹介するページです。<br>少し重みのある、高級感を感じる配色にしました。</p>
+						<p>HTML / CSS / レスポンシブデザイン</p>
 					</div>
 				</li>
 			</ul>
@@ -120,7 +160,7 @@
 			<li><a href="#port">portfolio</a></li>
 			<li><a href="#skill">skill</a></li>
 		</ul>
-		<small>&#169; 2020  ANZU</small>
+		<small>&#169; 2020  KYOKO NOZAKI</small>
 	</footer>
 
 </div>
@@ -134,10 +174,10 @@
 <script>
 'use strict';
 {
-	setTimeout(function() {
+	window.addEventListener('load', function() {
 		const load = document.getElementById('loading');
 		load.classList.add('none');
-	}, 1200);
+	});
 
 	$('.slick').slick({
 		dots: true,

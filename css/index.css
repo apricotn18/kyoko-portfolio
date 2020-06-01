@@ -35,18 +35,16 @@ body {
 }
 .title {
 	position: absolute;
-	top: 45%;
+	top: 46%;
 	left: 0;
 	right: 0;
 }
 h1 {
 	opacity: 0;
-}
-h1 {
 	font-family: 'Righteous';
 	font-size: 10rem;
 	color: #91355f;
-	line-height: 1.1;
+	line-height: 1.2;
 }
 h1 + p {
 	opacity: 0;
@@ -69,12 +67,7 @@ h1 + p {
 		font-size: 7rem;
 	}
 	h1 + p {
-		font-size: 2.5rem;
-	}
-	.scroll {
-		background-size: 30px;
-		width: 30px;
-		height: 30px;
+		font-size: 2.3rem;
 	}
 }
 
