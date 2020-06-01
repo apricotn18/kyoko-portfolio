@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/index.css">
 <link rel="stylesheet" href="css/slick.css">
-<link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Kosugi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/anicollection.css">
+<link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Kosugi|Righteous&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 <style>
 #loading {
@@ -45,7 +46,10 @@
 <div class="wrap">
 	<section id="main">
 		<div class="inner">
-			<h1>portfolio<span>KYOKO NOZAKI</span></h1>
+			<div class="title">
+				<h1 id="animate1" data-anijs="if: transitionend, on: #loading, do: animated bounceInDown">portfolio</h1>
+				<p id="animate2" data-anijs="if: animationend, on: #animate1, do: animated flipInX">KYOKO NOZAKI</p>
+			</div>
 		</div>
 	</section>
 
@@ -165,6 +169,7 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/slick.js"></script>
+<script src="js/anijs-min.js"></script>
 <script>
 'use strict';
 {

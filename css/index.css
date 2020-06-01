@@ -24,28 +24,39 @@ body {
 /* main -------------------*/
 #main {
 	overflow: hidden;
-	background: url(../img/main.jpg) no-repeat 0 0;
+	background: url(../img/main.png) no-repeat 0 0;
 	background-size: 100%;
 }
 #main .inner {
 	position: relative;
-	height: 44vw;
+	height: 92vh;
+	min-height: 550px;
+	padding: 0;
 }
-h1 {
+.title {
 	position: absolute;
-	bottom: 12vw;
+	top: 47%;
 	left: 0;
 	right: 0;
-	font-size: 8.5rem;
-	letter-spacing: .3rem;
-	color: #91355f;
-	line-height: 1.3;
 }
-h1 span {
-	display: block;
-	font-size: 2.4rem;
+h1 {
+	opacity: 0;
+}
+h1 {
+	font-family: 'Righteous';
+	font-size: 10rem;
+	color: #91355f;
+	line-height: 1.1;
+	transition: .3s;
+}
+h1 + p {
+	opacity: 0;
+	font-size: 3rem;
 	color: #a66382;
 	font-weight: bold;
+}
+.animated {
+	opacity: 1;
 }
 @media screen and (max-width: 660px) {
 	#main {
@@ -53,14 +64,18 @@ h1 span {
 		background-size: 100%;
 	}
 	#main .inner {
-		height: 50vh;
+		height: 80vh;
 	}
 	h1 {
-		font-size: 6rem;
-		top: 50%;
+		font-size: 7.2rem;
 	}
-	h1 span {
-		font-size: 2rem;
+	h1 + p {
+		font-size: 2.5rem;
+	}
+	.scroll {
+		background-size: 30px;
+		width: 30px;
+		height: 30px;
 	}
 }
 
