@@ -47,7 +47,6 @@ h1 {
 	font-size: 10rem;
 	color: #91355f;
 	line-height: 1.1;
-	transition: .3s;
 }
 h1 + p {
 	opacity: 0;
