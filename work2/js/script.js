@@ -1,14 +1,17 @@
 {
 	'use strict';
 
-	navigator.geolocation.getCurrentPosition(success, fail);
-
+	let latG, lonG = '';
 	const load = document.getElementById('loading');
+
+	navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
+		latG = pos.coords.latitude;
+		lonG = pos.coords.longitude;
+		ajaxRequest(latG, lonG);
 	}
 
 	function fail(error) {
@@ -176,7 +179,9 @@
 	const li = document.querySelectorAll('#select_area li');
 	for (let i = 0; i < li.length; i++) {
 		li[i].addEventListener('click', function() {
-			ajaxRequest(areaList[i]['coord'][0], areaList[i]['coord'][1]);
+			latG = areaList[i]['coord'][0];
+			lonG = areaList[i]['coord'][1];
+			ajaxRequest(latG, lonG);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
