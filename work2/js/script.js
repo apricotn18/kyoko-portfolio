@@ -182,7 +182,7 @@
 		li[i].addEventListener('click', function() {
 			latG = areaList[i]['coord'][0];
 			lonG = areaList[i]['coord'][1];
-			ajaxRequest(latG, lonG);
+			ajaxRequest(35.68036537, 139.77166874);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
