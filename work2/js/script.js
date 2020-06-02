@@ -4,7 +4,7 @@
 	let latG, lonG = '';
 	const load = document.getElementById('loading');
 
-	navigator.geolocation.getCurrentPosition(success, fail);
+	// navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
