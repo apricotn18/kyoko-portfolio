@@ -14,6 +14,112 @@ body {
 }
 
 
+/* loading -------------------*/
+#loading.action {
+	animation-name: anime1;
+	animation-duration: 1.5s;
+	animation-delay: .5s;
+	animation-fill-mode: forwards;
+}
+@keyframes anime1 {
+	100% {
+		opacity: 0;
+		z-index: -1;
+	}
+}
+
+/* amination */
+.sk-folding-cube {
+	width: 30px;
+	height: 30px;
+	margin: auto;
+	position: relative;
+	-webkit-transform: rotateZ(45deg);
+			transform: rotateZ(45deg);
+  }
+  .sk-folding-cube .sk-cube {
+	float: left;
+	width: 50%;
+	height: 50%;
+	position: relative;
+	-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+			transform: scale(1.1);
+  }
+  .sk-folding-cube .sk-cube:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,.8);
+	-webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+			animation: sk-foldCubeAngle 2.4s infinite linear both;
+	-webkit-transform-origin: 100% 100%;
+		-ms-transform-origin: 100% 100%;
+			transform-origin: 100% 100%;
+  }
+  .sk-folding-cube .sk-cube2 {
+	-webkit-transform: scale(1.1) rotateZ(90deg);
+			transform: scale(1.1) rotateZ(90deg);
+  }
+  .sk-folding-cube .sk-cube3 {
+	-webkit-transform: scale(1.1) rotateZ(180deg);
+			transform: scale(1.1) rotateZ(180deg);
+  }
+  .sk-folding-cube .sk-cube4 {
+	-webkit-transform: scale(1.1) rotateZ(270deg);
+			transform: scale(1.1) rotateZ(270deg);
+  }
+  .sk-folding-cube .sk-cube2:before {
+	-webkit-animation-delay: 0.3s;
+			animation-delay: 0.3s;
+  }
+  .sk-folding-cube .sk-cube3:before {
+	-webkit-animation-delay: 0.6s;
+			animation-delay: 0.6s;
+  }
+  .sk-folding-cube .sk-cube4:before {
+	-webkit-animation-delay: 0.9s;
+			animation-delay: 0.9s;
+  }
+  @-webkit-keyframes sk-foldCubeAngle {
+	0%, 10% {
+	  -webkit-transform: perspective(140px) rotateX(-180deg);
+			  transform: perspective(140px) rotateX(-180deg);
+	  opacity: 0;
+	} 25%, 75% {
+	  -webkit-transform: perspective(140px) rotateX(0deg);
+			  transform: perspective(140px) rotateX(0deg);
+	  opacity: 1;
+	} 90%, 100% {
+	  -webkit-transform: perspective(140px) rotateY(180deg);
+			  transform: perspective(140px) rotateY(180deg);
+	  opacity: 0;
+	}
+  }
+  @keyframes sk-foldCubeAngle {
+	0%, 10% {
+	  -webkit-transform: perspective(140px) rotateX(-180deg);
+			  transform: perspective(140px) rotateX(-180deg);
+	  opacity: 0;
+	} 25%, 75% {
+	  -webkit-transform: perspective(140px) rotateX(0deg);
+			  transform: perspective(140px) rotateX(0deg);
+	  opacity: 1;
+	} 90%, 100% {
+	  -webkit-transform: perspective(140px) rotateY(180deg);
+			  transform: perspective(140px) rotateY(180deg);
+	  opacity: 0;
+	}
+  }
+  #loading p {
+	  margin-top: 2rem;
+	  color: #fff;
+  }
+
+
 /* wrap -------------------*/
 .wrap {
 	background: #dcdadf;
@@ -52,7 +158,29 @@ h1 + p {
 	color: #a66382;
 	font-weight: bold;
 }
-.animated {
+#scroll {
+	display: inline-block;
+	/* opacity: 0; */
+	position: absolute;
+	color: #91355f;
+	transition: 1s;
+	/* animation-name: scroll;
+	animation-duration: 1s;
+	animation-iteration-count: infinite; */
+	bottom: 0;
+	left: 50%;
+	transform: rotate(45deg) translate(-72%);
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	width: 30px;
+	height: 30px;
+}
+/* @keyframes scroll {
+	0% {bottom: .5rem;}
+	90% {bottom: 0;}
+	100% {bottom: .5rem;}
+} */
+.animated, #scroll.animated {
 	opacity: 1;
 }
 @media screen and (max-width: 660px) {
@@ -167,9 +295,33 @@ h2 {
 .skill_list > div {
 	width: 47.5%;
 }
-.skill_list img {
+.skill_img > div {
+	position: relative;
+}
+.skill_img > div > img {
 	border: 2px solid #ececec;
 	line-height: 1.4;
+}
+#skill_img_inner {
+	position: absolute;
+	display: table;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 2px;
+}
+#skill_img_inner > div {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+#skill_img_inner img {
+	width: 0;
+	transition: 1s;
+}
+#skill_img_inner.active img {
+	width: 100%;
 }
 #skill p {
 	margin-bottom: 1rem;

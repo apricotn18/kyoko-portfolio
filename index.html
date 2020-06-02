@@ -15,6 +15,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
 <style>
 #loading {
+	font-family: 'Lexend Deca';
 	position: fixed;
 	z-index: 200;
 	opacity: 1;
@@ -50,6 +51,7 @@
 				<h1 id="animate1" data-anijs="if: animationend, on: #loading, do: animated bounceInDown">portfolio</h1>
 				<p id="animate2" data-anijs="if: animationend, on: #animate1, do: animated flipInX">KYOKO NOZAKI</p>
 			</div>
+			<p id="scroll"></p>
 		</div>
 	</section>
 
@@ -130,8 +132,13 @@
 		<div class="inner">
 			<h2>skill</h2>
 			<div class="flex skill_list">
-				<div>
-					<img src="img/skill_graph.png" alt="HTML/CSS：3, JavaScript：2, jQuery：2, Veu.js：1, Photoshop/illustrator/XD：3">
+				<div class="skill_img">
+					<div>
+						<img src="img/skill_graph.png" alt="スキルグラフ下地">
+						<div id="skill_img_inner">
+							<div><img src="img/skill_graph_line.png" alt="HTML/CSS：3, JavaScript：2, jQuery：2, Veu.js：1, Photoshop/illustrator/XD：3"></div>
+						</div>
+					</div>
 				</div>
 				<div>
 					<p>
@@ -189,6 +196,19 @@
 		const position = target.offset().top + 30;
 		$('html, body').animate({scrollTop:position}, 500, 'swing');
 		return false;
+	});
+
+	const profImg = $('#prof_img');
+	const skillImg = $('#skill_img_inner');
+	window.addEventListener('scroll', function() {
+		let h = $(window).innerHeight();
+		let st = $(window).scrollTop();
+		let scroll = st + h - (h / 2);
+
+		let offsetSkill = skillImg.offset().top;
+		if (offsetSkill < scroll + 30) {
+			skillImg.addClass('active');
+		}
 	});
 }
 
