@@ -9,9 +9,7 @@
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		latG = pos.coords.latitude;
-		lonG = pos.coords.longitude;
-		ajaxRequest(latG, lonG);
+		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
 	}
 
 	function fail(error) {
