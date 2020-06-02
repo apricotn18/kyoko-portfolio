@@ -8,7 +8,9 @@
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		ajaxRequest(35.68036537, 139.77166874);
+		const a = 35.68036537;
+		const b = 139.77166874;
+		ajaxRequest(a, b);
 	}
 
 	function fail(error) {
