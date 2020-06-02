@@ -15,7 +15,7 @@
 		ajaxRequest(latG, lonG);
 	}
 
-	function fail(error) {z
+	function fail(error) {
 		load.classList.add('dnone');
 		ajaxRequest(35.68036537, 139.77166874);
 		console.log(error);
