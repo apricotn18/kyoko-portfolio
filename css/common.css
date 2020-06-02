@@ -54,7 +54,7 @@ a {
 
 
 /* loading -------------------*/
-#loading {
+#loading.action {
 	animation-name: anime1;
 	animation-duration: 1.5s;
 	animation-delay: 1.2s;
