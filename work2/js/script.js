@@ -11,7 +11,6 @@
 		load.classList.remove('ready');
 		latG = pos.coords.latitude;
 		lonG = pos.coords.longitude;
-		console.log(latG, lonG);
 		ajaxRequest(latG, lonG);
 	}
 
