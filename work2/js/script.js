@@ -11,10 +11,11 @@
 		load.classList.remove('ready');
 		latG = pos.coords.latitude;
 		lonG = pos.coords.longitude;
+		console.log(latG, lotG);
 		ajaxRequest(latG, lonG);
 	}
 
-	function fail(error) {
+	function fail(error) {z
 		load.classList.add('dnone');
 		ajaxRequest(35.68036537, 139.77166874);
 		console.log(error);
