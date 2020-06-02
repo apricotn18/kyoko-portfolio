@@ -4,12 +4,15 @@
 	let latG, lonG = '';
 	const load = document.getElementById('loading');
 
-	// navigator.geolocation.getCurrentPosition(success, fail);
+	navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
+		latG = pos.coords.latitude;
+		lonG = pos.coords.longitude;
+		console.log(latG, lonG);
+		ajaxRequest(latG, lonG);
 	}
 
 	function fail(error) {
