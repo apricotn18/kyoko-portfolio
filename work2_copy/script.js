@@ -78,11 +78,11 @@
 			});
 
 			//2回目以降用
-			setTimeout(function() {
-				if (!load.classList.contains('dnone')) {
+			// setTimeout(function() {
+			// 	if (!load.classList.contains('dnone')) {
 					load.classList.add('dnone');
-				}
-			}, 800);
+			// 	}
+			// }, 800);
 		})
 		.catch(erro => {
 			console.log(erro);
