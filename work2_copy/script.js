@@ -2,16 +2,16 @@
 	'use strict';
 
 	let latG, lonG = '';
+	const load = document.getElementById('loading');
 
 	navigator.geolocation.getCurrentPosition(success, fail);
-
-	const load = document.getElementById('loading');
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
 		latG = pos.coords.latitude;
 		lonG = pos.coords.longitude;
+		console.log(latG, lonG);
 		ajaxRequest(latG, lonG);
 	}
 
@@ -78,11 +78,11 @@
 			});
 
 			//2回目以降用
-			// setTimeout(function() {
-			// 	if (!load.classList.contains('dnone')) {
+			setTimeout(function() {
+				if (!load.classList.contains('dnone')) {
 					load.classList.add('dnone');
-			// 	}
-			// }, 800);
+				}
+			}, 800);
 		})
 		.catch(erro => {
 			console.log(erro);
