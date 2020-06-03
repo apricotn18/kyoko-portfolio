@@ -1,7 +1,7 @@
 {
 	'use strict';
 
-	navigator.geolocation.getCurrentPosition(success, fail);
+	// navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
