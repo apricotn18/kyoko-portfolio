@@ -1,18 +1,15 @@
 {
 	'use strict';
 
+	navigator.geolocation.getCurrentPosition(success, fail);
+
 	let latG, lonG = '';
 	const load = document.getElementById('loading');
-
-	navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		latG = pos.coords.latitude;
-		lonG = pos.coords.longitude;
-		console.log(latG, lonG);
-		ajaxRequest(latG, lonG);
+		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
 	}
 
 	function fail(error) {
@@ -182,7 +179,7 @@
 		li[i].addEventListener('click', function() {
 			latG = areaList[i]['coord'][0];
 			lonG = areaList[i]['coord'][1];
-			ajaxRequest(35.68036537, 139.77166874);
+			ajaxRequest(latG, lonG);
 
 			overflow.classList.add('hidden');
 			load.classList.remove('dnone');
