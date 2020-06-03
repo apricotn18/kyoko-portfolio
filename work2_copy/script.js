@@ -1,18 +1,12 @@
 {
 	'use strict';
 
-	let latG, lonG = '';
-	const load = document.getElementById('loading');
-
 	navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		latG = pos.coords.latitude;
-		lonG = pos.coords.longitude;
-		console.log(latG, lonG);
-		ajaxRequest(latG, lonG);
+		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
 	}
 
 	function fail(error) {
@@ -25,6 +19,8 @@
 		return utcTime * 1000;
 	}
 
+	let latG, lonG = '';
+	const load = document.getElementById('loading');
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
