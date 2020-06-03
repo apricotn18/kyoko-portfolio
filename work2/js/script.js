@@ -1,15 +1,18 @@
 {
 	'use strict';
 
+	let latG, lonG = '';
+
 	navigator.geolocation.getCurrentPosition(success, fail);
 
-	let latG, lonG = '';
 	const load = document.getElementById('loading');
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
+		latG = pos.coords.latitude;
+		lonG = pos.coords.longitude;
+		ajaxRequest(latG, lonG);
 	}
 
 	function fail(error) {
