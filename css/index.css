@@ -153,6 +153,7 @@ h1 {
 	color: #91355f;
 	font-weight: bold;
 	line-height: 1.2;
+	letter-spacing: 0;
 }
 h1 + p {
 	opacity: 0;
