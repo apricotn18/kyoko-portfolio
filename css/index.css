@@ -216,6 +216,7 @@ h1 + p {
 	}
 	#scroll {
 		left: 0;
+		bottom: 10rem;
 	}
 }
 
