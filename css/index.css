@@ -18,7 +18,7 @@ body {
 #loading.action {
 	animation-name: anime1;
 	animation-duration: 1.5s;
-	animation-delay: .5s;
+	animation-delay: .2;
 	animation-fill-mode: forwards;
 }
 @keyframes anime1 {
@@ -135,6 +135,8 @@ body {
 }
 #main .inner {
 	position: relative;
+	transform: translateY(0);
+	opacity: 1;
 	height: 92vh;
 	min-height: 550px;
 	padding: 0;
@@ -147,9 +149,9 @@ body {
 }
 h1 {
 	opacity: 0;
-	font-family: 'Righteous';
 	font-size: 10rem;
 	color: #91355f;
+	font-weight: bold;
 	line-height: 1.2;
 }
 h1 + p {
@@ -160,26 +162,37 @@ h1 + p {
 }
 #scroll {
 	display: inline-block;
-	/* opacity: 0; */
+	opacity: 0;
 	position: absolute;
-	color: #91355f;
-	transition: 1s;
-	/* animation-name: scroll;
-	animation-duration: 1s;
-	animation-iteration-count: infinite; */
-	bottom: 0;
-	left: 50%;
-	transform: rotate(45deg) translate(-72%);
-	border-right: 1px solid;
-	border-bottom: 1px solid;
-	width: 30px;
-	height: 30px;
+	color: #913660;
+	bottom: 11rem;
+	left: .5rem;
+	margin-top: 3rem;
+	transition: .5s;
 }
-/* @keyframes scroll {
-	0% {bottom: .5rem;}
-	90% {bottom: 0;}
-	100% {bottom: .5rem;}
-} */
+#scroll span {
+	display: block;
+	transform: rotate(90deg);
+}
+#scroll::before, #scroll::after {
+	content: "";
+	position: absolute;
+	top: 4rem;
+	left: calc(50% - .4rem);
+	width: 1px;
+	height: 60px;
+	background: #aaa;
+}
+#scroll::after {
+	background: #913660;
+	animation-name: scroll;
+	animation-duration: 1.7s;
+	animation-iteration-count: infinite;
+}
+@keyframes scroll {
+	0% {height: 0;}
+	100% {height: 60px;}
+}
 .animated, #scroll.animated {
 	opacity: 1;
 }
@@ -200,6 +213,17 @@ h1 + p {
 	h1 + p {
 		font-size: 2.3rem;
 	}
+	#scroll {
+		left: 0;
+		bottom: 8rem;
+	}
+	#scroll::before, #scroll::after {
+		height: 40px;
+	}
+	@keyframes scroll {
+		0% {height: 0;}
+		100% {height: 40px;}
+	}
 }
 
 
@@ -212,6 +236,13 @@ h1 + p {
 	padding: 6rem 3rem 6.5rem;
 	max-width: 1100px;
 	margin: auto;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: .5s;
+}
+.inner.active {
+	opacity: 1;
+	transform: translateY(0);
 }
 h2 {
 	font-size: 3rem;
@@ -240,7 +271,7 @@ h2 {
 	margin-top: 3rem;
 }
 .port_list li img {
-	width: 85%;
+	width: 88%;
 	padding-left: 2%;
 	margin: auto;
 	cursor: grab;
@@ -295,33 +326,9 @@ h2 {
 .skill_list > div {
 	width: 47.5%;
 }
-.skill_img > div {
-	position: relative;
-}
-.skill_img > div > img {
+.skill_list img {
 	border: 2px solid #ececec;
 	line-height: 1.4;
-}
-#skill_img_inner {
-	position: absolute;
-	display: table;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	padding: 2px;
-}
-#skill_img_inner > div {
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
-}
-#skill_img_inner img {
-	width: 0;
-	transition: 1s;
-}
-#skill_img_inner.active img {
-	width: 100%;
 }
 #skill p {
 	margin-bottom: 1rem;

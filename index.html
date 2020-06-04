@@ -48,10 +48,10 @@
 	<section id="main">
 		<div class="inner">
 			<div class="title">
-				<h1 id="animate1" data-anijs="if: animationend, on: #loading, do: animated bounceInDown">portfolio</h1>
+				<h1 id="animate1" data-anijs="if: animationend, on: #loading, do: animated bounceInUp">portfolio</h1>
 				<p id="animate2" data-anijs="if: animationend, on: #animate1, do: animated flipInX">KYOKO NOZAKI</p>
 			</div>
-			<p id="scroll"></p>
+			<p id="scroll" data-anijs="if: animationend, on: #animate2, do: animated"><span>scroll</span></p>
 		</div>
 	</section>
 
@@ -132,13 +132,8 @@
 		<div class="inner">
 			<h2>skill</h2>
 			<div class="flex skill_list">
-				<div class="skill_img">
-					<div>
-						<img src="img/skill_graph.png" alt="スキルグラフ下地">
-						<div id="skill_img_inner">
-							<div><img src="img/skill_graph_line.png" alt="HTML/CSS：3, JavaScript：2, jQuery：2, Veu.js：1, Photoshop/illustrator/XD：3"></div>
-						</div>
-					</div>
+				<div>
+					<img src="img/skill_graph.png" alt="HTML/CSS：3, JavaScript：2, jQuery：2, Veu.js：1, Photoshop/illustrator/XD：3">
 				</div>
 				<div>
 					<p>
@@ -198,17 +193,17 @@
 		return false;
 	});
 
-	const profImg = $('#prof_img');
-	const skillImg = $('#skill_img_inner');
+	const inner = document.querySelectorAll('.inner')
 	window.addEventListener('scroll', function() {
 		let h = $(window).innerHeight();
 		let st = $(window).scrollTop();
-		let scroll = st + h - (h / 2);
+		let scroll = st + h - (h / 3) - 80;
 
-		let offsetSkill = skillImg.offset().top;
-		if (offsetSkill < scroll + 30) {
-			skillImg.addClass('active');
-		}
+		for (let i = 1; i < inner.length; i++) {
+			if (inner[i].offsetTop < scroll) {
+				inner[i].classList.add('active');
+			}
+	}
 	});
 }
 
