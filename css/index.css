@@ -209,10 +209,10 @@ h1 + p {
 		top: 43%;
 	}
 	h1 {
-		font-size: 7rem;
+		font-size: 17vw;
 	}
 	h1 + p {
-		font-size: 2.3rem;
+		font-size: 6vw;
 	}
 	#scroll {
 		left: 0;
