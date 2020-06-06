@@ -63,7 +63,7 @@
 	const inner = document.querySelectorAll('.inner');
 	const skill = inner[2];
 	const port = inner[3];
-	const li = document.querySelectorAll('.port_list li');
+	const li = document.querySelectorAll('.port_list');
 
 	window.addEventListener('scroll', function() {
 		let h = $(window).innerHeight();
@@ -101,8 +101,7 @@
 
 	//slick
 	$('.slick').slick({
-		dots: true,
-		arrows: false,
+		dots: true
 	});
 
 
