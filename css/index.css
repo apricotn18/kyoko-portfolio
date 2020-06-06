@@ -282,7 +282,7 @@ h2 {
 }
 canvas {
 	opacity: 0;
-	transition: .3s;
+	transition: .5s;
 }
 canvas.active {
 	opacity: 1;
@@ -313,11 +313,18 @@ canvas.active {
 .port_list {
 	justify-content: space-between;
 }
-.port_list li {
+.port_list > li {
 	width: 48%;
 	margin-top: 3rem;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: .5s;
 }
-.port_list li img {
+.port_list > li.active {
+	transform: translateY(0);
+	opacity: 1;
+}
+.port_list > li img {
 	width: 88%;
 	padding-left: 2%;
 	margin: auto;
