@@ -86,8 +86,14 @@
 
 		//port_list
 		for (let i = 0; i < li.length; i++) {
-			if (li[i].offsetTop + port.offsetTop < scroll) {
-				li[i].classList.add('active');
+			if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+				if (li[i].offsetTop < scroll) {
+					li[i].classList.add('active');
+				}
+			} else {
+				if (li[i].offsetTop + port.offsetTop < scroll) {
+					li[i].classList.add('active');
+				}
 			}
 		}
 	});
