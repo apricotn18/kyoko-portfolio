@@ -312,7 +312,7 @@ canvas.active {
 }
 .port_list {
 	width: 100%;
-	margin-top: 5rem;
+	margin-top: 6rem;
 	opacity: 0;
 	transform: translateY(30px);
 	transition: .5s;
@@ -328,11 +328,11 @@ canvas.active {
 	float: left;
 }
 .port_list .slick {
-	width: 50%;
+	width: 47%;
 }
 .port_list .port_text {
-	width: 45%;
-	margin: 1rem 0 3rem 5%;
+	width: 44.5%;
+	margin: .2rem 3% 0 5.5%;
 	text-align: left;
 }
 .port_list img {
@@ -341,12 +341,15 @@ canvas.active {
 	margin: auto;
 	cursor: grab;
 }
-.port_list h3 {
-	font-size: 1.6rem;
-	margin-bottom: .8rem;
+.port_list h3, .port_list h3 a {
+	font-size: 1.8rem;
+	margin-bottom: 1rem;
+	color: #464a57;
 }
-.port_text a {
-	margin-top: 2rem;
+.port_list h3 a:hover {
+	text-decoration: underline;
+}
+.port_text > a {
 	display: inline-block;
 	border: 1px solid;
 	padding: 1rem 3rem .9rem;
@@ -354,15 +357,21 @@ canvas.active {
 	border-radius: .5rem;
 	transition: .2s;
 }
-.port_text a:hover {
+.port_text > a:hover {
 	color: #eee;
 	border-color: #7f808d;
 	background: #7f808d;
 }
-.port_text p.samll {
-	font-size: 12px;
-	margin-top: 1.2rem;
+.port_text table {
+	margin: 1.7rem 0 2rem;
+}
+.port_text th, .port_text td {
 	color: #95969a;
+	font-size: 1.2rem;
+	line-height: 1.7;
+}
+.port_text th {
+	width: 4.3rem;
 }
 @media screen and (max-width: 660px) {
 	.port_list li {
@@ -386,9 +395,6 @@ canvas.active {
 	.port_list .port_text {
 		width: 100%;
 		margin: 1.7em 0 3rem;
-	}
-	.port_list .port_text br {
-		display: none;
 	}
 	.port_text a {
 		padding: 1rem 0 .9rem;
