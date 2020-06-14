@@ -25,67 +25,15 @@
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
-		const url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
+		$('h2').html(lat + ',' + lon);
 
-		fetch(url, {
-			mode: 'cors',
-			method: 'POST',
-			cache: 'no-cache',
-		})
-		.then(async response => {
-			const data = await response.json();
-			console.log(data);
-
-			// 都市
-			// $('h2').html(data.city.name);
-
-			// // 天気予報データ
-			// data.list.forEach(function (forecast, index) {
-			// 	const dateTime = new Date(utcToJSTime(forecast.dt));
-			// 	const month = dateTime.getMonth() + 1;
-			// 	const date = dateTime.getDate();
-			// 	const hours = dateTime.getHours();
-			// 	const min = String(dateTime.getMinutes()).padStart(2, '0');
-			// 	const temperature = Math.round(forecast.main.temp);
-			// 	const description = forecast.weather[0].description;
-			// 	const iconPath = `../work2/img/${forecast.weather[0].icon}.svg`;
-			// 	// 現在の天気、それ以外
-			// 	if (index === 0) {
-			// 		const currentWeather = `
-			// 				<div class="info">
-			// 					<p>
-			// 						現在の天気：${description}
-			// 						<span class="temp">${temperature}</span>°C
-			// 					</p>
-			// 				</div>
-			// 				<div class="icon"><img src="${iconPath}"></div>`;
-			// 		$('#weather').html(currentWeather);
-			// 	}
-			// 	else {
-			// 		const tableRow = `
-			// 				<tr>
-			// 					<td class="info">
-			// 						${month}/${date}<br>${hours}:${min}
-			// 					</td>
-			// 					<td class="icon"><img src="${iconPath}"></td>
-			// 					<td><span class="description">${description}</span></td>
-			// 					<td><span class="temp">${temperature}°C</span></td>
-			// 				</tr>`;
-			// 		$('#forecast').append(tableRow);
-			// 	}
-			// });
 
 			//2回目以降用
 			setTimeout(function() {
 				if (!load.classList.contains('dnone')) {
-					$('h2').html(lat + ',' + lon);
 					load.classList.add('dnone');
 				}
 			}, 800);
-		})
-		.catch(erro => {
-			console.log(erro);
-		});
 	}
 
 
