@@ -3,7 +3,7 @@
 
 	navigator.geolocation.getCurrentPosition(success, fail);
 
-	const load = document.getElementById('loading');
+	var load = document.getElementById('loading');
 
 	function success(pos) {
 		load.classList.add('dnone');
@@ -97,10 +97,10 @@
 
 
 	// overflow
-	const change = document.getElementById('change');
-	const overflow = document.getElementById('overflow');
-	const wrap = document.getElementById('overflow_wrap');
-	const close = document.getElementById('overflow_close');
+	var change = document.getElementById('change');
+	var overflow = document.getElementById('overflow');
+	var wrap = document.getElementById('overflow_wrap');
+	var close = document.getElementById('overflow_close');
 
 	change.addEventListener('click', function() {
 		overflow.classList.toggle('hidden');
