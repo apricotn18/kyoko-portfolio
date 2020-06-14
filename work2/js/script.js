@@ -3,7 +3,7 @@
 
 	navigator.geolocation.getCurrentPosition(success, fail);
 
-	const load = document.getElementById('loading');
+	var load = document.getElementById('loading');
 
 	function success(pos) {
 		load.classList.add('dnone');
@@ -24,7 +24,7 @@
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
-		let url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
+		var url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
 
 		fetch(url, {
 			mode: 'cors',
@@ -32,24 +32,24 @@
 			cache: 'no-cache',
 		})
 		.then(async response => {
-			let data = await response.json();
+			var data = await response.json();
 
 			// 都市
 			$('h2').html(data.city.name);
 
 			// 天気予報データ
 			data.list.forEach(function (forecast, index) {
-				let dateTime = new Date(utcToJSTime(forecast.dt));
-				let month = dateTime.getMonth() + 1;
-				let date = dateTime.getDate();
-				let hours = dateTime.getHours();
-				let min = String(dateTime.getMinutes()).padStart(2, '0');
-				let temperature = Math.round(forecast.main.temp);
-				let description = forecast.weather[0].description;
-				let iconPath = `img/${forecast.weather[0].icon}.svg`;
+				var dateTime = new Date(utcToJSTime(forecast.dt));
+				var month = dateTime.getMonth() + 1;
+				var date = dateTime.getDate();
+				var hours = dateTime.getHours();
+				var min = String(dateTime.getMinutes()).padStart(2, '0');
+				var temperature = Math.round(forecast.main.temp);
+				var description = forecast.weather[0].description;
+				var iconPath = `img/${forecast.weather[0].icon}.svg`;
 				// 現在の天気、それ以外
 				if (index === 0) {
-					let currentWeather = `
+					var currentWeather = `
 							<div class="info">
 								<p>
 									現在の天気：${description}
@@ -60,7 +60,7 @@
 					$('#weather').html(currentWeather);
 				}
 				else {
-					let tableRow = `
+					var tableRow = `
 							<tr>
 								<td class="info">
 									${month}/${date}<br>${hours}:${min}
@@ -85,7 +85,6 @@
 		});
 	}
 
-
 	// 位置情報の確認がでなかったとき
 	setTimeout(function() {
 		if (!load.classList.contains('ready')) {
@@ -98,26 +97,24 @@
 
 
 	// overflow
-	const change = document.getElementById('change');
-	const overflow = document.getElementById('overflow');
-	const wrap = document.getElementById('overflow_wrap');
-	const close = document.getElementById('overflow_close');
+	var change = document.getElementById('change');
+	var overflow = document.getElementById('overflow');
+	var wrap = document.getElementById('overflow_wrap');
+	var close = document.getElementById('overflow_close');
 
 	change.addEventListener('click', function() {
 		overflow.classList.toggle('hidden');
 	});
-
 	wrap.addEventListener('click', function() {
 		overflow.classList.add('hidden');
 	});
-
 	close.addEventListener('click', function() {
 		overflow.classList.add('hidden');
 	});
 
 
 	//座標一覧
-	const areaList = [
+	var areaList = [
 		{'area': '北海道', 'coord': [43.06417, 141.34694]},
 		{'area': '青森県', 'coord': [40.82444, 140.74]},
 		{'area': '岩手県', 'coord': [39.70361, 141.1525]},
@@ -174,7 +171,7 @@
 	});
 
 	$('li').click(function() {
-		let coord = this.dataset.coord.split(',');
+		var coord = this.dataset.coord.split(',');
 		ajaxRequest(coord[0], coord[1]);
 
 		overflow.classList.add('hidden');
