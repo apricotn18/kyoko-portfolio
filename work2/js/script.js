@@ -3,7 +3,7 @@
 
 	navigator.geolocation.getCurrentPosition(success, fail);
 
-	var load = document.getElementById('loading');
+	const load = document.getElementById('loading');
 
 	function success(pos) {
 		load.classList.add('dnone');
