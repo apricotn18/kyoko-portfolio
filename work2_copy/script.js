@@ -1,6 +1,9 @@
 {
 	'use strict';
 
+	let latG = 0;
+	let lonG = 0;
+
 	navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
@@ -18,9 +21,6 @@
 	function utcToJSTime(utcTime) {
 		return utcTime * 1000;
 	}
-
-	let latG = 0;
-	let lonG = 0;
 	const load = document.getElementById('loading');
 
 	// 天気予報
