@@ -25,6 +25,7 @@
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
+		load.classList.add('dnone');
 		$('h2').html(lat + ',' + lon);
 
 
@@ -132,7 +133,6 @@
 			ajaxRequest(latG, lonG);
 
 			overflow.classList.add('hidden');
-			load.classList.remove('dnone');
 			$('#forecast').html('');
 			$('#weather').html('');
 		});
