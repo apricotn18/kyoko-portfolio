@@ -1,18 +1,15 @@
 {
 	'use strict';
 
-	let latG, lonG = '';
-
 	navigator.geolocation.getCurrentPosition(success, fail);
 
+	let latG, lonG = '';
 	const load = document.getElementById('loading');
 
 	function success(pos) {
 		load.classList.add('dnone');
 		load.classList.remove('ready');
-		latG = pos.coords.latitude;
-		lonG = pos.coords.longitude;
-		ajaxRequest(latG, lonG);
+		ajaxRequest(pos.coords.latitude, pos.coords.longitude);
 	}
 
 	function fail(error) {
@@ -174,20 +171,16 @@
 
 	// 地名検索
 	areaList.forEach(function(list) {
-		$('#select_area').append(`<li>${list.area}</li>`);
+		$('#select_area').append(`<li data-coord="${list.coord}">${list.area}</li>`);
 	});
 
-	const li = document.querySelectorAll('#select_area li');
-	for (let i = 0; i < li.length; i++) {
-		li[i].addEventListener('click', function() {
-			latG = areaList[i]['coord'][0];
-			lonG = areaList[i]['coord'][1];
-			ajaxRequest(latG, lonG);
+	$('li').click(function() {
+		let coord = this.dataset.coord.split(',');
+		ajaxRequest(coord[0], coord[1]);
 
-			overflow.classList.add('hidden');
-			load.classList.remove('dnone');
-			$('#forecast').html('');
-			$('#weather').html('');
-		});
-	}
+		overflow.classList.add('hidden');
+		load.classList.remove('dnone');
+		$('#forecast').html('');
+		$('#weather').html('');
+	});
 }
