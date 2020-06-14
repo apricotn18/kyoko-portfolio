@@ -171,7 +171,7 @@
 	});
 
 	$('li').click(function() {
-		let coord = this.dataset.coord.split(',');
+		var coord = this.dataset.coord.split(',');
 		ajaxRequest(coord[0], coord[1]);
 
 		overflow.classList.add('hidden');
