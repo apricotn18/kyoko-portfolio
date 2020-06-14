@@ -1,7 +1,7 @@
 {
 	'use strict';
 
-	// navigator.geolocation.getCurrentPosition(success, fail);
+	navigator.geolocation.getCurrentPosition(success, fail);
 
 	function success(pos) {
 		load.classList.add('dnone');
@@ -19,7 +19,8 @@
 		return utcTime * 1000;
 	}
 
-	let latG, lonG = '';
+	let latG = 0;
+	let lonG = 0;
 	const load = document.getElementById('loading');
 
 	// 天気予報
@@ -33,6 +34,7 @@
 		})
 		.then(async response => {
 			const data = await response.json();
+			console.log(data);
 
 			// 都市
 			$('h2').html(data.city.name);
