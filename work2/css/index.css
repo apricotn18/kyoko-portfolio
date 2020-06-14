@@ -15,25 +15,6 @@ body {
 	min-height: 100vh;
 	padding: .5rem 2rem;
 }
-.pankuz {
-	max-width: 390px;
-	margin: auto;
-	text-align: right;
-}
-.pankuz a, .pankuz span {
-	position: relative;
-	display: inline-block;
-	margin-bottom: .5rem;
-	color: #999;
-	font-size: 1.1rem;
-}
-.pankuz a {
-	text-decoration: underline;
-}
-.pankuz span::before {
-	content: ">";
-	padding: 0 5px 0 0;
-}
 
 
 /* wrap -------------------*/
