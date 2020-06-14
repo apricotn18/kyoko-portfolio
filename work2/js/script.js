@@ -3,7 +3,6 @@
 
 	navigator.geolocation.getCurrentPosition(success, fail);
 
-	let latG, lonG = '';
 	const load = document.getElementById('loading');
 
 	function success(pos) {
@@ -25,7 +24,7 @@
 
 	// 天気予報
 	function ajaxRequest(lat, lon) {
-		const url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
+		let url = `https://api.openweathermap.org/data/2.5/forecast?appid=dd64b46ea595c4104e0881953cb4e287&lat=${lat}&lon=${lon}&cnt=10&units=metric&lang=ja`;
 
 		fetch(url, {
 			mode: 'cors',
@@ -33,24 +32,24 @@
 			cache: 'no-cache',
 		})
 		.then(async response => {
-			const data = await response.json();
+			let data = await response.json();
 
 			// 都市
 			$('h2').html(data.city.name);
 
 			// 天気予報データ
 			data.list.forEach(function (forecast, index) {
-				const dateTime = new Date(utcToJSTime(forecast.dt));
-				const month = dateTime.getMonth() + 1;
-				const date = dateTime.getDate();
-				const hours = dateTime.getHours();
-				const min = String(dateTime.getMinutes()).padStart(2, '0');
-				const temperature = Math.round(forecast.main.temp);
-				const description = forecast.weather[0].description;
-				const iconPath = `img/${forecast.weather[0].icon}.svg`;
+				let dateTime = new Date(utcToJSTime(forecast.dt));
+				let month = dateTime.getMonth() + 1;
+				let date = dateTime.getDate();
+				let hours = dateTime.getHours();
+				let min = String(dateTime.getMinutes()).padStart(2, '0');
+				let temperature = Math.round(forecast.main.temp);
+				let description = forecast.weather[0].description;
+				let iconPath = `img/${forecast.weather[0].icon}.svg`;
 				// 現在の天気、それ以外
 				if (index === 0) {
-					const currentWeather = `
+					let currentWeather = `
 							<div class="info">
 								<p>
 									現在の天気：${description}
@@ -61,7 +60,7 @@
 					$('#weather').html(currentWeather);
 				}
 				else {
-					const tableRow = `
+					let tableRow = `
 							<tr>
 								<td class="info">
 									${month}/${date}<br>${hours}:${min}
