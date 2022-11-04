@@ -1,3 +1,197 @@
-﻿<head>
-	<meta http-equiv="Refresh" content="0; URL=https://anzu-portfolio.herokuapp.com/">
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>ANZU - ポートフォリオ</title>
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+<link rel="stylesheet" href="common/css/common.css">
+<link rel="stylesheet" href="common/css/index.css">
+<link rel="stylesheet" href="common/css/slick.css">
+<link rel="stylesheet" href="common/css/anicollection.css">
+<link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Kosugi&display=swap" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="common/img/favicon.ico">
+<style>
+#loading {
+	font-family: 'Lexend Deca';
+	position: fixed;
+	z-index: 200;
+	opacity: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #91355f;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+</style>
 </head>
+<body style="overflow: hidden;">
+
+<div id="loading">
+	<div>
+		<div class="sk-folding-cube">
+			<div class="sk-cube1 sk-cube"></div>
+			<div class="sk-cube2 sk-cube"></div>
+			<div class="sk-cube4 sk-cube"></div>
+			<div class="sk-cube3 sk-cube"></div>
+		</div>
+		<p>loading ..</p>
+	</div>
+</div>
+
+<div class="wrap">
+	<section id="main">
+		<div class="inner">
+			<div class="title">
+				<h1 id="animate1" data-anijs="if: animationend, on: #loading, do: animated bounceInUp">portfolio</h1>
+				<p id="animate2" data-anijs="if: animationend, on: #animate1, do: animated flipInX">Front-end Engineer</p>
+			</div>
+			<p id="scroll" data-anijs="if: animationend, on: #animate2, do: animated"><span>scroll</span></p>
+		</div>
+	</section>
+
+	<section id="prof">
+		<div class="inner">
+			<h2>profile</h2>
+			<img src="common/img/img_prof.png" alt="プロフィール画像">
+			<p>
+				webアプリの個人開発を目指して勉強中の「あんず」といいます。<br>
+				新卒から4年間、webデザイナーとしてデザコーやSEO・広告運用に携わりましたが、<br>
+				2020年にフロントエンドエンジニアへ転向しました。<br>
+				現在、プログラミングスキルを伸ばすためJavaScriptのフレームワークを勉強中です。
+			</p>
+		</div>
+	</section>
+
+	<section id="skill">
+		<div class="inner">
+			<h2>skill</h2>
+			<div class="flex skill_list">
+				<div>
+					<canvas id="chart" style="position: relative;height: 100;width: 100;"></canvas>
+				</div>
+				<div>
+					<p>HTML / CSSは疑似要素やアニメーション、セマンティックなマークアップ（SEO）が可能です。デザインツールも実務レベルで使用できます。</p>
+					<p>JavaScriptは、jQueryを用いてインタラクションの実装、Ajax通信によるデータの取得・操作など実務レベルで使用できます。</p>
+					<p>現在はReact.js関連のフレームワークを勉強中。今後はNode.jsやPHPの勉強もしていきたいと考えます。</p>
+					<ol class="skill_level" reversed>
+						<li>実務レベル</li>
+						<li>実務レベルで使えるが、習熟が必要</li>
+						<li>実務で軽く使用あり、勉強中</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="port">
+		<div class="inner">
+			<h2>portfolio</h2>
+			<ul>
+				<li class="flex port_list">
+					<div class="slick">
+						<div><img src="common/img/img_dinner_1.png"></div>
+					</div>
+					<div class="port_text">
+						<h3><a href="https://test-week-dinner.herokuapp.com/" target="_blank">
+							1週間の献立アプリ
+						</a></h3>
+						<p>
+							楽天レシピからAPIを取得して、1週間の献立を登録できるアプリを制作しました。<br>
+							リストはローカルストレージに保存され、日にちが変わると更新されます。また、買い物リストやランキングからレシピ登録できる機能もあります。
+						</p>
+						<table>
+							<tr>
+								<td colspan="2">HTML / CSS / jQuery / Webpack</td>
+							</tr>
+							<tr>
+								<th>制作：</th><td>2021年2月〜10月（期間：半年）</td>
+							</tr>
+							<tr>
+								<th>担当：</th><td>すべて</td>
+							</tr>
+						</table>
+						<a href="https://test-week-dinner.herokuapp.com/" target="_blank">ページを開く</a>
+					</div>
+				</li>
+
+				<li class="flex port_list">
+					<div class="slick">
+						<div><img src="common/img/img_weather_1.png"></div>
+					</div>
+					<div class="port_text">
+						<h3><a href="./weather/index.html" target="_blank">
+							天気予報アプリ
+						</a></h3>
+						<p>
+							JavaScriptのリファレンス本を参考にして、現在地の3時間ごとの天気予報を取得できるAPIアプリを制作しました。<br>
+							オリジナルで、都道府県別の天気を取得できる機能を追加しました。
+						</p>
+						<table>
+							<tr>
+								<td colspan="2">HTML / CSS / jQuery</td>
+							</tr>
+							<tr>
+								<th>制作：</th><td>2020年5月（期間：2週間）</td>
+							</tr>
+							<tr>
+								<th>担当：</th><td>すべて</td>
+							</tr>
+						</table>
+						<a href="./weather/index.html" target="_blank">ページを開く</a>
+					</div>
+				</li>
+
+				<li class="flex port_list">
+					<div class="slick">
+						<div><img src="common/img/img_corporation_1.png"></div>
+						<div><img src="common/img/img_corporation_3.png"></div>
+						<div><img src="common/img/img_corporation_2.png"></div>
+					</div>
+					<div class="port_text">
+						<h3><a href="./corporation/index.html" target="_blank">
+							コーポレートサイト
+						</a></h3>
+						<p>
+							実在しない企業のコーポレートサイトを制作しました。コンセプトは笑顔・生活・ITです。<br>
+							画像はフリー素材を使い、ダミーの文言もすべて自分で考えました。
+						</p>
+						<table>
+							<tr>
+								<td colspan="2">HTML / CSS / jQuery / レスポンシブデザイン</td>
+							</tr>
+							<tr>
+								<th>制作：</th><td>2020年1月（期間：1か月）</td>
+							</tr>
+							<tr>
+								<th>担当：</th><td>すべて</td>
+							</tr>
+						</table>
+						<a href="./corporation/index.html" target="_blank">ページを開く</a>
+					</div>
+				</li>
+			</ul>
+	</section>
+
+	<footer>
+		<ul class="flex fot_list">
+			<li><a href="#prof">profile</a></li>
+			<li><a href="#skill">skill</a></li>
+			<li><a href="#port">portfolio</a></li>
+		</ul>
+		<small>&#169; 2020  ANZU</small>
+	</footer>
+</div>
+
+<script src="common/js/jquery.js"></script>
+<script src="common/js/slick.min.js"></script>
+<script src="common/js/anijs-min.js"></script>
+<script src="common/js/chart.min.js"></script>
+<script src="common/js/index.js"></script>
+</body>
+</html>
