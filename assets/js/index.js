@@ -10,7 +10,7 @@ $(function () {
 		const c = new Chart(myChart, {
 			type: 'radar',
 			data: {
-				labels: ['HTML / CSS', 'jQuery', 'React.js', 'TypeScript', ['Photoshop', 'llustrator', 'XD']],
+				labels: ['HTML / CSS', 'jQuery', ['React', 'Next.js'], 'TypeScript', ['Photoshop', 'llustrator', 'XD']],
 				datasets: [{
 					label: 'スキル',
 					data: [3, 3, 1, 2, 3],
