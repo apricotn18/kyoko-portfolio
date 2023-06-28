@@ -107,9 +107,6 @@ $(function () {
 		}
 	});
 
-	// slick
-	$('.slick').slick({ dots: true });
-
 	// ページ内リンク
 	$('.fot_list a').on('click', (e) => {
 		e.preventDefault();

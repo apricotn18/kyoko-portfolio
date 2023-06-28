@@ -248,6 +248,12 @@ h2 {
 #prof p {
 	margin-top: 2.3rem;
 }
+.prof_link {
+	margin-top: 1rem;
+}
+.prof_link a {
+	text-decoration: underline;
+}
 
 
 /* skill -------------------*/
@@ -327,7 +333,7 @@ canvas.active {
 .port_list > div {
 	float: left;
 }
-.port_list .slick {
+.port_list .image {
 	width: 47%;
 }
 .port_list .port_text {
@@ -362,16 +368,12 @@ canvas.active {
 	border-color: #7f808d;
 	background: #7f808d;
 }
-.port_text table {
+.port_text .info {
 	margin: 1.7rem 0 2rem;
 }
-.port_text th, .port_text td {
+.port_text .info p {
 	color: #95969a;
-	font-size: 1.2rem;
 	line-height: 1.7;
-}
-.port_text th {
-	width: 4.3rem;
 }
 @media screen and (max-width: 660px) {
 	#port .inner {
@@ -392,7 +394,7 @@ canvas.active {
 	.port_list > div {
 		float: none;
 	}
-	.port_list .slick {
+	.port_list .image {
 		width: 100%;
 	}
 	.port_list .port_text {

@@ -7,12 +7,11 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta http-equiv="content-style-type" content="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
-<link rel="stylesheet" href="common/css/common.css">
-<link rel="stylesheet" href="common/css/index.css">
-<link rel="stylesheet" href="common/css/slick.css">
-<link rel="stylesheet" href="common/css/anicollection.css">
+<link rel="stylesheet" href="./assets/css/anicollection.css">
+<link rel="stylesheet" href="./assets/css/common.css">
+<link rel="stylesheet" href="./assets/css/index.css">
 <link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Kosugi&display=swap" rel="stylesheet">
-<link rel="shortcut icon" type="image/x-icon" href="common/img/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="./assets/img/favicon.ico">
 <style>
 #loading {
 	font-family: 'Lexend Deca';
@@ -58,13 +57,16 @@
 	<section id="prof">
 		<div class="inner">
 			<h2>profile</h2>
-			<img src="common/img/img_prof.png" alt="プロフィール画像">
+			<img src="./assets/img/img_prof.png" alt="プロフィール画像">
 			<p>
 				webアプリの個人開発を目指して勉強中です。<br>
 				新卒から4年間、webデザイナーとしてデザコーやSEO・広告運用に携わりましたが、<br>
 				2020年にフロントエンドエンジニアへ転向しました。<br>
 				現在、プログラミングスキルを伸ばすためJavaScriptのフレームワークを勉強中です。
 			</p>
+			<div class="prof_link">
+				<a href="https://github.com/apricotn18">github</a>
+			</div>
 		</div>
 	</section>
 
@@ -94,67 +96,36 @@
 			<h2>portfolio</h2>
 			<ul>
 				<li class="flex port_list">
-					<div class="slick">
-						<div><img src="common/img/img_dinner_1.png"></div>
+					<div class="image">
+						<div><img src="./assets/img/img_dinner_1.png"></div>
 					</div>
 					<div class="port_text">
-						<h3><a href="https://week-dinner.herokuapp.com/" target="_blank">
-							1週間の献立アプリ
-						</a></h3>
+						<h3>1週間の献立アプリ</h3>
 						<p>
 							楽天レシピからAPIを取得して、1週間の献立を登録できるアプリを制作しました。<br>
 							リストはローカルストレージに保存され、日にちが変わると更新されます。また、買い物リストやランキングからレシピ登録できる機能もあります。
 						</p>
-						<table>
-							<tr><td colspan="2">HTML / CSS / jQuery / Webpack</td></tr>
-							<tr><th>制作：</th><td>2021年2月〜10月（期間：半年）</td></tr>
-							<tr><th>担当：</th><td>すべて</td></tr>
-						</table>
-						<a href="https://week-dinner.herokuapp.com/" target="_blank">ページを開く</a>
+						<div class="info">
+							<p>環境：webpack / Next.js / 楽天レシピAPI</p>
+						</div>
+						<a href="https://github.com/apricotn18/week-dinner" target="_blank">ページを開く</a>
 					</div>
 				</li>
 
 				<li class="flex port_list">
-					<div class="slick">
-						<div><img src="common/img/img_weather_1.png"></div>
+					<div class="image">
+						<img src="./assets/img/img_weather_1.png">
 					</div>
 					<div class="port_text">
-						<h3><a href="./weather/index.html" target="_blank">
-							天気予報アプリ
-						</a></h3>
+						<h3>天気予報アプリ</h3>
 						<p>
 							JavaScriptのリファレンス本を参考にして、現在地の3時間ごとの天気予報を取得できるAPIアプリを制作しました。<br>
 							オリジナルで、都道府県別の天気を取得できる機能を追加しました。
 						</p>
-						<table>
-							<tr><td colspan="2">HTML / CSS / jQuery</td></tr>
-							<tr><th>制作：</th><td>2020年5月（期間：2週間）</td></tr>
-							<tr><th>担当：</th><td>すべて</td></tr>
-						</table>
-						<a href="./weather/index.html" target="_blank">ページを開く</a>
-					</div>
-				</li>
-
-				<li class="flex port_list">
-					<div class="slick">
-						<div><img src="common/img/img_corporation_1.png"></div>
-						<div><img src="common/img/img_corporation_3.png"></div>
-						<div><img src="common/img/img_corporation_2.png"></div>
-					</div>
-					<div class="port_text">
-						<h3><a href="./corporation/index.html" target="_blank">
-							コーポレートサイト
-						</a></h3>
-						<p>
-							実在しない企業のコーポレートサイトを制作しました。コンセプトは笑顔・生活・ITです。<br>
-							画像はフリー素材を使い、ダミーの文言もすべて自分で考えました。
-						</p>
-						<table>
-							<tr><td colspan="2">HTML / CSS / jQuery / レスポンシブデザイン</td></tr>
-							<tr><th>制作：</th><td>2020年1月（期間：1か月）</td></tr>
-							<tr><th>担当：</th><td>すべて</td></tr>
-						</table>
-						<a href="./corporation/index.html" target="_blank">ページを開く</a>
+						<div class="info">
+							<p>環境：React / Open Weather Map API</p>
+						</div>
+						<a href="https://github.com/apricotn18/weather-app" target="_blank">ページを開く</a>
 					</div>
 				</li>
 			</ul>
@@ -170,10 +141,9 @@
 	</footer>
 </div>
 
-<script src="common/js/jquery.js"></script>
-<script src="common/js/slick.min.js"></script>
-<script src="common/js/anijs-min.js"></script>
-<script src="common/js/chart.min.js"></script>
-<script src="common/js/index.js"></script>
+<script src="./assets/js/anijs-min.js"></script>
+<script src="./assets/js/jquery.js"></script>
+<script src="./assets/js/chart.min.js"></script>
+<script src="./assets/js/index.js"></script>
 </body>
 </html>
